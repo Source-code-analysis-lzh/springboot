@@ -25,21 +25,16 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * An {@link ApplicationListener} that halts application startup if the system file
- * encoding does not match an expected value set in the environment. By default has no
- * effect, but if you set {@code spring.mandatory_file_encoding} (or some camelCase or
- * UPPERCASE variant of that) to the name of a character encoding (e.g. "UTF-8") then this
- * initializer throws an exception when the {@code file.encoding} System property does not
- * equal it.
+ * 如果系统文件编码与环境中设置的期望值不匹配，则{@link ApplicationListener}停止应用程序启动。
+ * 默认情况下不起作用，但是如果将{@code spring.mandatory_file_encoding}（或它的某些camelCase或UPPERCASE变体）
+ * 设置为字符编码的名称（例如"UTF-8"），则此初始化器在{@code file.encoding}系统属性不等于它时将引发异常。
  *
- * <p>
- * The System property {@code file.encoding} is normally set by the JVM in response to the
- * {@code LANG} or {@code LC_ALL} environment variables. It is used (along with other
- * platform-dependent variables keyed off those environment variables) to encode JVM
- * arguments as well as file names and paths. In most cases you can override the file
- * encoding System property on the command line (with standard JVM features), but also
- * consider setting the {@code LANG} environment variable to an explicit
- * character-encoding value (e.g. "en_GB.UTF-8").
+ * 当系统属性file.encoding与配置的spring强制编码属性不一致时，打印出错信息，并终止程序的启动过程。
+ *
+ * <p>系统属性{@code file.encoding}通常由JVM设置，以响应{@code LANG}或{@code LC_ALL}环境变量。
+ * 它（与其他依赖于这些环境变量的依赖于平台的变量一起）用于编码JVM参数以及文件名和路径。
+ * 在大多数情况下，您可以在命令行上覆盖文件编码System属性（具有标准JVM功能），
+ * 但也可以考虑将{@code LANG}环境变量设置为显式的字符编码值（例如"en_GB.UTF-8"）。
  *
  * @author Dave Syer
  * @author Madhura Bhave

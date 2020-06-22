@@ -35,16 +35,13 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link ServletWebServerApplicationContext} that accepts annotated classes as input - in
- * particular {@link org.springframework.context.annotation.Configuration @Configuration}
- * -annotated classes, but also plain {@link Component @Component} classes and JSR-330
- * compliant classes using {@code javax.inject} annotations. Allows for registering
- * classes one by one (specifying class names as config location) as well as for classpath
- * scanning (specifying base packages as config location).
+ * {@link ServletWebServerApplicationContext}接受带注释的类作为输入-特别是
+ * {@link org.springframework.context.annotation.Configuration @Configuration}注释的类，
+ * 但也可以是普通的{@link Component @Component}类和符合JSR-330的类使用{@code javax.inject}注释。
+ * 允许一对一注册类（将类名指定为配置位置），以及进行类路径扫描（将基本包指定为配置位置）。
  * <p>
- * Note: In case of multiple {@code @Configuration} classes, later {@code @Bean}
- * definitions will override ones defined in earlier loaded files. This can be leveraged
- * to deliberately override certain bean definitions via an extra Configuration class.
+ * 注意：如果有多个{@code @Configuration}类，则后面的{@code @Bean}定义将覆盖在先前加载的文件中定义的定义。
+ * 可以利用此属性通过一个额外的Configuration类有意覆盖某些bean定义。
  *
  * @author Phillip Webb
  * @since 1.0.0
@@ -189,19 +186,21 @@ public class AnnotationConfigServletWebServerApplicationContext extends ServletW
 		this.basePackages = basePackages;
 	}
 
+	// 1、刷新-准备刷新会清空扫描器缓存
 	@Override
 	protected void prepareRefresh() {
 		this.scanner.clearCache();
 		super.prepareRefresh();
 	}
 
+	// 2、刷新-初始化bean工厂后处理
 	@Override
 	protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 		super.postProcessBeanFactory(beanFactory);
 		if (this.basePackages != null && this.basePackages.length > 0) {
-			this.scanner.scan(this.basePackages);
+			this.scanner.scan(this.basePackages); // 扫描注册
 		}
-		if (!this.annotatedClasses.isEmpty()) {
+		if (!this.annotatedClasses.isEmpty()) { // 直接注册
 			this.reader.register(ClassUtils.toClassArray(this.annotatedClasses));
 		}
 	}

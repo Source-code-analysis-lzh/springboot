@@ -19,19 +19,20 @@ package org.springframework.boot.context.properties.source;
 /**
  * Interface used to indicate that a {@link ConfigurationPropertySource} supports
  * {@link ConfigurationPropertyCaching}.
+ * 用于指示{@link ConfigurationPropertySource}支持{@link ConfigurationPropertyCaching}的接口。
  *
  * @author Phillip Webb
  */
 interface CachingConfigurationPropertySource {
 
 	/**
-	 * Return {@link ConfigurationPropertyCaching} for this source.
+	 * 为此源返回{@link ConfigurationPropertyCaching}。
 	 * @return source caching
 	 */
 	ConfigurationPropertyCaching getCaching();
 
 	/**
-	 * Find {@link ConfigurationPropertyCaching} for the given source.
+	 * 查找给定源的{@link ConfigurationPropertyCaching}。
 	 * @param source the configuration property source
 	 * @return a {@link ConfigurationPropertyCaching} instance or {@code null} if the
 	 * source does not support caching.

@@ -34,6 +34,8 @@ import org.springframework.util.ConcurrentReferenceHashMap.ReferenceType;
 /**
  * Adapter to convert Spring's {@link MutablePropertySources} to
  * {@link ConfigurationPropertySource ConfigurationPropertySources}.
+ * 将Spring的{@link MutablePropertySources}转换为
+ * {@link ConfigurationPropertySource ConfigurationPropertySources}的适配器。
  *
  * @author Phillip Webb
  */

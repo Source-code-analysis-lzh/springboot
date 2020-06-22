@@ -21,8 +21,8 @@ import java.util.Comparator;
 import org.springframework.util.Assert;
 
 /**
- * An implementation of {@link Comparator} for comparing {@link LoggerConfiguration}s.
- * Sorts the "root" logger as the first logger and then lexically by name after that.
+ * {@link Comparator}的实现，用于比较{@link LoggerConfiguration}。
+ * 将"root"记录器排序为第一个记录器，然后在名称上按词法排序。
  *
  * @author Ben Hale
  */

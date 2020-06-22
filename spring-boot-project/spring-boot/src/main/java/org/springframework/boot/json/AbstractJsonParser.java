@@ -24,7 +24,7 @@ import java.util.function.Function;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Base class for parsers wrapped or implemented in this package.
+ * 在此包中包装或实现的解析器的基类。
  *
  * @author Anton Telechev
  * @author Phillip Webb

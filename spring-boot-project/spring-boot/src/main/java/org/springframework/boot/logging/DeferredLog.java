@@ -23,8 +23,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Deferred {@link Log} that can be used to store messages that shouldn't be written until
- * the logging system is fully initialized.
+ * 延迟{@link Log}，可用于存储在日志系统完全初始化之前不应该写入的消息。
  *
  * @author Phillip Webb
  * @since 1.3.0

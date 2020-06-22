@@ -17,7 +17,7 @@
 package org.springframework.boot.ansi;
 
 /**
- * An ANSI encodable element.
+ * ANSI可编码元素。
  *
  * @author Phillip Webb
  * @since 1.0.0

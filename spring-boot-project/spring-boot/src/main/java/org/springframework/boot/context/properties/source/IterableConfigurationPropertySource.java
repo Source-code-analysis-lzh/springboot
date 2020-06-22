@@ -23,11 +23,9 @@ import java.util.stream.Stream;
 import org.springframework.boot.origin.OriginTrackedValue;
 
 /**
- * A {@link ConfigurationPropertySource} with a fully {@link Iterable} set of entries.
- * Implementations of this interface <strong>must</strong> be able to iterate over all
- * contained configuration properties. Any {@code non-null} result from
- * {@link #getConfigurationProperty(ConfigurationPropertyName)} must also have an
- * equivalent entry in the {@link #iterator() iterator}.
+ * 具有一组完全{@link Iterable}的条目的{@link ConfigurationPropertySource}。
+ * 此接口的实现必须能够迭代所有包含的配置属性。 {@link #getConfigurationProperty(ConfigurationPropertyName)}
+ * 的任何非空结果还必须在{@link #iterator() iterator}中具有等效项。
  *
  * @author Phillip Webb
  * @author Madhura Bhave

@@ -26,7 +26,7 @@ import java.util.Map;
 import org.springframework.util.Assert;
 
 /**
- * Utility for working with {@link AnsiColor} in the context of {@link Color AWT Colors}.
+ * 在{@link Color AWT Colors}的上下文中使用{@link AnsiColor}的工具类。
  *
  * @author Craig Burke
  * @author Ruben Dijkstra

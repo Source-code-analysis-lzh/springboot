@@ -17,7 +17,7 @@
 package org.springframework.boot.logging;
 
 /**
- * Logging levels supported by a {@link LoggingSystem}.
+ * {@link LoggingSystem}支持的日志记录级别。
  *
  * @author Phillip Webb
  * @since 1.0.0

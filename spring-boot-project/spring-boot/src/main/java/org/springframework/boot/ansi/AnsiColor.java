@@ -17,7 +17,7 @@
 package org.springframework.boot.ansi;
 
 /**
- * {@link AnsiElement Ansi} colors.
+ * {@link AnsiElement Ansi}颜色。
  *
  * @author Phillip Webb
  * @author Geoffrey Chandler

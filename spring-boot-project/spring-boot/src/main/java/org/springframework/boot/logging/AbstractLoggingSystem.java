@@ -30,7 +30,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.SystemPropertyUtils;
 
 /**
- * Abstract base class for {@link LoggingSystem} implementations.
+ * {@link LoggingSystem}实现的抽象基类。
  *
  * @author Phillip Webb
  * @author Dave Syer
@@ -53,10 +53,11 @@ public abstract class AbstractLoggingSystem extends LoggingSystem {
 
 	@Override
 	public void initialize(LoggingInitializationContext initializationContext, String configLocation, LogFile logFile) {
-		if (StringUtils.hasLength(configLocation)) {
+		if (StringUtils.hasLength(configLocation)) { // 如果指定配置位置，则使用指定配置初始化
 			initializeWithSpecificConfig(initializationContext, configLocation, logFile);
 			return;
 		}
+		// 如果没有指定配置，则使用惯例初始化
 		initializeWithConventions(initializationContext, logFile);
 	}
 
@@ -87,6 +88,8 @@ public abstract class AbstractLoggingSystem extends LoggingSystem {
 	 * Return any self initialization config that has been applied. By default this method
 	 * checks {@link #getStandardConfigLocations()} and assumes that any file that exists
 	 * will have been applied.
+	 * 返回已应用的任何自初始化配置。 默认情况下，此方法检查{@link #getStandardConfigLocations()}，
+	 * 并假定将应用任何存在的文件。
 	 * @return the self initialization config or {@code null}
 	 */
 	protected String getSelfInitializationConfig() {
@@ -96,6 +99,7 @@ public abstract class AbstractLoggingSystem extends LoggingSystem {
 	/**
 	 * Return any spring specific initialization config that should be applied. By default
 	 * this method checks {@link #getSpringConfigLocations()}.
+	 * 返回应该应用的任何特定于spring的初始化配置。 默认情况下，此方法检查{@link #getSpringConfigLocations()}。
 	 * @return the spring initialization config or {@code null}
 	 */
 	protected String getSpringInitializationConfig() {

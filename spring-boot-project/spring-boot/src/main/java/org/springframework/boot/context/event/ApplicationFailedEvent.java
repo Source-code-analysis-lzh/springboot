@@ -20,7 +20,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- * Event published by a {@link SpringApplication} when it fails to start.
+ * {@link SpringApplication}启动失败时发布的事件。
  *
  * @author Dave Syer
  * @since 1.0.0

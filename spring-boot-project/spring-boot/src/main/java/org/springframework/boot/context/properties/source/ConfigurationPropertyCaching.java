@@ -22,7 +22,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.util.Assert;
 
 /**
- * Interface that can be used to control configuration property source caches.
+ * 可用于控制配置属性源高速缓存的接口。
  *
  * @author Phillip Webb
  * @since 2.3.0
@@ -30,7 +30,7 @@ import org.springframework.util.Assert;
 public interface ConfigurationPropertyCaching {
 
 	/**
-	 * Enable caching with an unlimited time-to-live.
+	 * 启用具有无限生存时间的缓存。
 	 */
 	void enable();
 
@@ -52,7 +52,7 @@ public interface ConfigurationPropertyCaching {
 	void clear();
 
 	/**
-	 * Get for all configuration property sources in the environment.
+	 * 获取环境中的所有配置属性源。
 	 * @param environment the spring environment
 	 * @return a caching instance that controls all sources in the environment
 	 */

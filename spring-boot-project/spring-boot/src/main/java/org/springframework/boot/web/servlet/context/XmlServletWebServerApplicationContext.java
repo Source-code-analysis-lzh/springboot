@@ -23,13 +23,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 /**
- * {@link ServletWebServerApplicationContext} which takes its configuration from XML
- * documents, understood by an
- * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
+ * {@link ServletWebServerApplicationContext}，它通过
+ * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}从XML文档获取配置。
  * <p>
- * Note: In case of multiple config locations, later bean definitions will override ones
- * defined in earlier loaded files. This can be leveraged to deliberately override certain
- * bean definitions via an extra XML file.
+ * 注意：如果有多个配置位置，则较新的Bean定义将覆盖较早加载的文件中定义的定义。
+ * 可以利用它来通过一个额外的XML文件有意覆盖某些bean定义。
  *
  * @author Phillip Webb
  * @since 1.0.0

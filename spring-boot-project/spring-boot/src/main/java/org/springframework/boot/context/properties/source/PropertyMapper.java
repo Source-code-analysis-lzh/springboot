@@ -23,8 +23,7 @@ import org.springframework.core.env.EnumerablePropertySource;
 import org.springframework.core.env.PropertySource;
 
 /**
- * Strategy used to provide a mapping between a {@link PropertySource} and a
- * {@link ConfigurationPropertySource}.
+ * 用于提供{@link PropertySource}和{@link ConfigurationPropertySource}之间的映射的策略。
  * <p>
  * Mappings should be provided for both {@link ConfigurationPropertyName
  * ConfigurationPropertyName} types and {@code String} based names. This allows the

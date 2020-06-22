@@ -23,6 +23,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * {@link FailureAnalysisReporter} that logs the failure analysis.
+ * {@link FailureAnalysisReporter}记录故障分析。
  *
  * @author Andy Wilkinson
  * @since 1.4.0
@@ -36,7 +37,7 @@ public final class LoggingFailureAnalysisReporter implements FailureAnalysisRepo
 		if (logger.isDebugEnabled()) {
 			logger.debug("Application failed to start due to an exception", failureAnalysis.getCause());
 		}
-		if (logger.isErrorEnabled()) {
+		if (logger.isErrorEnabled()) { // 通过日志来记录故障分析
 			logger.error(buildMessage(failureAnalysis));
 		}
 	}

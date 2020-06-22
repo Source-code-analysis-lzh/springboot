@@ -23,9 +23,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation that can be used to indicate that configuration properties should be bound
- * using constructor arguments rather than by calling setters. Can be added at the type
- * level (if there is an unambiguous constructor) or on the actual constructor to use.
+ * 可以用来指示配置属性应使用构造函数参数而不是通过调用setter进行绑定的注释。
+ * 可以在类型级别（如果有明确的构造函数）或实际使用的构造函数上添加。
  *
  * @author Phillip Webb
  * @since 2.2.0

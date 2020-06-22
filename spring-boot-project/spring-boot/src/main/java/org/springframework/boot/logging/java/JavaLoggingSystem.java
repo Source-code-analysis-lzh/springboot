@@ -40,7 +40,7 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link LoggingSystem} for {@link Logger java.util.logging}.
+ * {@link Logger java.util.logging}的{@link LoggingSystem}。
  *
  * @author Phillip Webb
  * @author Dave Syer

@@ -24,9 +24,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * A single configuration property obtained from a {@link ConfigurationPropertySource}
- * consisting of a {@link #getName() name}, {@link #getValue() value} and optional
- * {@link #getOrigin() origin}.
+ * 从{@link ConfigurationPropertySource}获得的单个配置属性，由{@link #getName() name},
+ * {@link #getValue() value}和可选的{@link #getOrigin() origin}组成。
  *
  * @author Phillip Webb
  * @author Madhura Bhave

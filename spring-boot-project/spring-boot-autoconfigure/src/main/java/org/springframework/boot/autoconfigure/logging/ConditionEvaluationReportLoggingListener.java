@@ -34,10 +34,8 @@ import org.springframework.core.ResolvableType;
 import org.springframework.util.Assert;
 
 /**
- * {@link ApplicationContextInitializer} that writes the {@link ConditionEvaluationReport}
- * to the log. Reports are logged at the {@link LogLevel#DEBUG DEBUG} level. A crash
- * report triggers an info output suggesting the user runs again with debug enabled to
- * display the report.
+ * {@link ApplicationContextInitializer}将{@link ConditionEvaluationReport}写入日志。
+ * 报告以{@link LogLevel＃DEBUG DEBUG}级别记录。 崩溃报告会触发信息输出，建议用户在启用调试的情况下再次运行以显示报告。
  * <p>
  * This initializer is not intended to be shared across multiple application context
  * instances.
@@ -89,11 +87,12 @@ public class ConditionEvaluationReportLoggingListener
 
 	protected void onApplicationEvent(ApplicationEvent event) {
 		ConfigurableApplicationContext initializerApplicationContext = this.applicationContext;
-		if (event instanceof ContextRefreshedEvent) {
+		if (event instanceof ContextRefreshedEvent) { // 上下文刷新事件
 			if (((ApplicationContextEvent) event).getApplicationContext() == initializerApplicationContext) {
 				logAutoConfigurationReport();
 			}
 		}
+		// 应用启动失败事件
 		else if (event instanceof ApplicationFailedEvent
 				&& ((ApplicationFailedEvent) event).getApplicationContext() == initializerApplicationContext) {
 			logAutoConfigurationReport(true);

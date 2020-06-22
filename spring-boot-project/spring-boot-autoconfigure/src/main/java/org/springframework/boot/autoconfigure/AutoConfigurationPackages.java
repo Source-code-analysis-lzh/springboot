@@ -91,12 +91,12 @@ public abstract class AutoConfigurationPackages {
 	 * @param packageNames the package names to set
 	 */
 	public static void register(BeanDefinitionRegistry registry, String... packageNames) {
-		if (registry.containsBeanDefinition(BEAN)) {
+		if (registry.containsBeanDefinition(BEAN)) { // 更新
 			BeanDefinition beanDefinition = registry.getBeanDefinition(BEAN);
 			ConstructorArgumentValues constructorArguments = beanDefinition.getConstructorArgumentValues();
 			constructorArguments.addIndexedArgumentValue(0, addBasePackages(constructorArguments, packageNames));
 		}
-		else {
+		else { // 插入BasePackages bean定义
 			GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
 			beanDefinition.setBeanClass(BasePackages.class);
 			beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(0, packageNames);
@@ -114,8 +114,7 @@ public abstract class AutoConfigurationPackages {
 	}
 
 	/**
-	 * {@link ImportBeanDefinitionRegistrar} to store the base package from the importing
-	 * configuration.
+	 * {@link ImportBeanDefinitionRegistrar}用于存储导入配置中的基本包。
 	 */
 	static class Registrar implements ImportBeanDefinitionRegistrar, DeterminableImports {
 
@@ -148,7 +147,7 @@ public abstract class AutoConfigurationPackages {
 			for (Class<?> basePackageClass : attributes.getClassArray("basePackageClasses")) {
 				packageNames.add(basePackageClass.getPackage().getName());
 			}
-			if (packageNames.isEmpty()) {
+			if (packageNames.isEmpty()) { // 如果没有配置，则获取使用该注释的类所在包
 				packageNames.add(ClassUtils.getPackageName(metadata.getClassName()));
 			}
 			this.packageNames = Collections.unmodifiableList(packageNames);
@@ -179,7 +178,7 @@ public abstract class AutoConfigurationPackages {
 	}
 
 	/**
-	 * Holder for the base package (name may be null to indicate no scanning).
+	 * 基础软件包的持有人（名称可以为null，表示不进行扫描）。
 	 */
 	static final class BasePackages {
 

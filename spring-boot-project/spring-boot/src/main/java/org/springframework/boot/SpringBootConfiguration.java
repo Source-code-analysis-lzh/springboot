@@ -27,10 +27,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Indicates that a class provides Spring Boot application
- * {@link Configuration @Configuration}. Can be used as an alternative to the Spring's
- * standard {@code @Configuration} annotation so that configuration can be found
- * automatically (for example in tests).
+ * 指示一个类提供Spring Boot应用程序{@link Configuration @Configuration}。
+ * 可以用作Spring标准{@code @Configuration}注释的替代方法，以便可以自动找到配置（例如在测试中）。
  * <p>
  * Application should only ever include <em>one</em> {@code @SpringBootConfiguration} and
  * most idiomatic Spring Boot applications will inherit it from

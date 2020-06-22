@@ -25,9 +25,10 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * An {@link ApplicationListener} that configures {@link AnsiOutput} depending on the
- * value of the property {@code spring.output.ansi.enabled}. See {@link Enabled} for valid
- * values.
+ * 根据属性{@code spring.output.ansi.enabled}的值配置{@link AnsiOutput}的{@link ApplicationListener}。
+ * 有关有效值，请参见{@link Enabled}。
+ *
+ * 根据属性spring.output.ansi.enabled配置ANSI输出。
  *
  * @author Raphael von der Grün
  * @author Madhura Bhave
@@ -39,8 +40,10 @@ public class AnsiOutputApplicationListener
 	@Override
 	public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
 		ConfigurableEnvironment environment = event.getEnvironment();
+		// 获取配置，转换为指定类型，赋值给AnsiOutput::setEnabled()
 		Binder.get(environment).bind("spring.output.ansi.enabled", AnsiOutput.Enabled.class)
 				.ifBound(AnsiOutput::setEnabled);
+		// 设置控制台是否可用
 		AnsiOutput.setConsoleAvailable(environment.getProperty("spring.output.ansi.console-available", Boolean.class));
 	}
 

@@ -42,16 +42,14 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.StringUtils;
 
 /**
- * Builder for {@link SpringApplication} and {@link ApplicationContext} instances with
- * convenient fluent API and context hierarchy support. Simple example of a context
- * hierarchy:
+ * {@link SpringApplication}和{@link ApplicationContext}实例的构建器，
+ * 具有便利的流式的API和上下文层次结构支持。 上下文层次结构的简单示例：
  *
  * <pre class="code">
  * new SpringApplicationBuilder(ParentConfig.class).child(ChildConfig.class).run(args);
  * </pre>
  *
- * Another common use case is setting active profiles and default properties to set up the
- * environment for an application:
+ * 另一个常见用例是设置活动配置(profiles)文件和默认属性以设置应用程序的环境：
  *
  * <pre class="code">
  * new SpringApplicationBuilder(Application.class).profiles(&quot;server&quot;)
@@ -59,8 +57,7 @@ import org.springframework.util.StringUtils;
  * </pre>
  *
  * <p>
- * If your needs are simpler, consider using the static convenience methods in
- * SpringApplication instead.
+ * 如果您的需求更简单，请考虑在SpringApplication中使用静态便捷方法。
  *
  * @author Dave Syer
  * @author Andy Wilkinson
@@ -176,6 +173,7 @@ public class SpringApplicationBuilder {
 	/**
 	 * Create a child application with the provided sources. Default args and environment
 	 * are copied down into the child, but everything else is a clean sheet.
+	 * 使用提供的源创建子应用程序。 默认的args和environment被复制到子级中，但是其它所有内容都是干净的。
 	 * @param sources the sources for the application (Spring configuration)
 	 * @return the child application builder
 	 */

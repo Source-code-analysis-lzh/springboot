@@ -23,12 +23,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that a getter in a {@link ConfigurationProperties @ConfigurationProperties}
- * object is deprecated. This annotation has no bearing on the actual binding processes,
- * but it is used by the {@code spring-boot-configuration-processor} to add deprecation
- * meta-data.
+ * 指示{@link ConfigurationProperties @ConfigurationProperties}对象中的getter被弃用。
+ * 该注释与实际的绑定过程无关，但是由{@code spring-boot-configuration-processor}使用它来添加弃用元数据。
  * <p>
  * This annotation <strong>must</strong> be used on the getter of the deprecated element.
+ * 必须在不赞成使用的元素的getter上使用此批注。
  *
  * @author Phillip Webb
  * @since 1.3.0
@@ -45,7 +44,7 @@ public @interface DeprecatedConfigurationProperty {
 	String reason() default "";
 
 	/**
-	 * The field that should be used instead (if any).
+	 * 应该改用的字段（如果有）。
 	 * @return the replacement field
 	 */
 	String replacement() default "";

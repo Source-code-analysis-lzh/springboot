@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 /**
- * A single logger group.
+ * 一个记录器组。
  *
  * @author Madhura Bhave
  * @author Phillip Webb

@@ -31,6 +31,9 @@ import org.springframework.core.type.AnnotationMetadata;
  * are quite flexible which can make it hard to tell exactly what bean definitions they
  * will add. This interface should be used when an implementation consistently results in
  * the same imports, given the same source.
+ * 当ImportSelector和ImportBeanDefinitionRegistrar实现可以及早确定导入时，可以由该接口实现。
+ * ImportSelector和ImportBeanDefinitionRegistrar接口非常灵活，这使得很难准确知道它们将添加哪些bean定义。
+ * 如果实现在给定相同来源的情况下始终导致相同的导入，则应使用此接口。
  * <p>
  * Using {@link DeterminableImports} is particularly useful when working with Spring's
  * testing support. It allows for better generation of {@link ApplicationContext} cache

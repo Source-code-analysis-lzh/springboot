@@ -31,6 +31,7 @@ import org.springframework.util.Assert;
 /**
  * {@link BeanFactoryPostProcessor} to validate that regular bean definitions aren't
  * creating {@link ConstructorBinding} beans.
+ * {@link BeanFactoryPostProcessor}来验证常规bean定义没有创建{@link ConstructorBinding} bean。
  *
  * @author Phillip Webb
  */

@@ -26,8 +26,7 @@ import org.springframework.core.env.MapPropertySource;
 import org.springframework.util.Assert;
 
 /**
- * A {@link ConfigurationPropertySource} backed by a {@link Map} and using standard name
- * mapping rules.
+ * 由{@link Map}支持并使用标准名称映射规则的{@link ConfigurationPropertySource}。
  *
  * @author Phillip Webb
  * @author Madhura Bhave

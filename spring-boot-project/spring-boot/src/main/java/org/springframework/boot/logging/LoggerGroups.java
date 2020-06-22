@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Logger groups configured via the Spring Environment.
+ * 通过Spring环境配置的记录器组。
  *
  * @author HaiTao Zhang
  * @author Phillip Webb

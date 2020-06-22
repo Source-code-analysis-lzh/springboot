@@ -46,10 +46,9 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Loads bean definitions from underlying sources, including XML and JavaConfig. Acts as a
- * simple facade over {@link AnnotatedBeanDefinitionReader},
- * {@link XmlBeanDefinitionReader} and {@link ClassPathBeanDefinitionScanner}. See
- * {@link SpringApplication} for the types of sources that are supported.
+ * 从底层源（包括XML和JavaConfig）加载bean定义。 包括通过{@link AnnotatedBeanDefinitionReader}，
+ * {@link XmlBeanDefinitionReader}和{@link ClassPathBeanDefinitionScanner}读取。
+ * 有关受支持的源类型，请参见{@link SpringApplication}。
  *
  * @author Phillip Webb
  * @author Vladislav Kisel
@@ -85,6 +84,7 @@ class BeanDefinitionLoader {
 			this.groovyReader = new GroovyBeanDefinitionReader(registry);
 		}
 		this.scanner = new ClassPathBeanDefinitionScanner(registry);
+		// 不需要重复扫描sources
 		this.scanner.addExcludeFilter(new ClassExcludeFilter(sources));
 	}
 
@@ -132,15 +132,19 @@ class BeanDefinitionLoader {
 
 	private int load(Object source) {
 		Assert.notNull(source, "Source must not be null");
+		//如果是class类型，启用注解类型
 		if (source instanceof Class<?>) {
 			return load((Class<?>) source);
 		}
+		//如果是resource类型，启用xml解析
 		if (source instanceof Resource) {
 			return load((Resource) source);
 		}
+		//如果是package类型，启用扫描包，例如：@ComponentScan
 		if (source instanceof Package) {
 			return load((Package) source);
 		}
+		//如果是字符串类型，直接加载
 		if (source instanceof CharSequence) {
 			return load((CharSequence) source);
 		}
@@ -154,6 +158,8 @@ class BeanDefinitionLoader {
 			load(loader);
 		}
 		if (isEligible(source)) {
+			// 用注解读取器的方式，将启动类bean信息存入beanDefinitionMap
+			// 启动类就被包装成AnnotatedGenericBeanDefinition了，后续启动类的处理都基于该对象了
 			this.annotatedReader.register(source);
 			return 1;
 		}
@@ -293,8 +299,7 @@ class BeanDefinitionLoader {
 	}
 
 	/**
-	 * Simple {@link TypeFilter} used to ensure that specified {@link Class} sources are
-	 * not accidentally re-added during scanning.
+	 * 简单的{@link TypeFilter}用于确保在扫描过程中不会意外地重新添加指定的{@link Class}源。
 	 */
 	private static class ClassExcludeFilter extends AbstractTypeHierarchyTraversingFilter {
 

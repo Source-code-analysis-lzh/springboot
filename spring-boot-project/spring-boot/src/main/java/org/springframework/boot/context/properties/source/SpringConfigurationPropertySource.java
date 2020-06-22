@@ -34,6 +34,9 @@ import org.springframework.util.Assert;
  * (such as a security restricted {@code systemEnvironment} source). A
  * {@link PropertySource} is adapted with the help of a {@link PropertyMapper} which
  * provides the mapping rules for individual properties.
+ * {@link ConfigurationPropertySource}由不可枚举的Spring {@link PropertySource}
+ * 或受限制的{@link EnumerablePropertySource}实现（例如受安全限制的{@code systemEnvironment}源）支持。
+ * {@link PropertySource}在{@link PropertyMapper}的帮助下进行了适配，后者提供了各个属性的映射规则。
  * <p>
  * Each {@link ConfigurationPropertySource#getConfigurationProperty
  * getConfigurationProperty} call attempts to

@@ -42,10 +42,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.StandardServletEnvironment;
 
 /**
- * An {@link EnvironmentPostProcessor} that parses JSON from
- * {@code spring.application.json} or equivalently {@code SPRING_APPLICATION_JSON} and
- * adds it as a map property source to the {@link Environment}. The new properties are
- * added with higher priority than the system properties.
+ * 一个{@link EnvironmentPostProcessor}，它从{@code spring.application.json}
+ * 或等效的{@code SPRING_APPLICATION_JSON}解析JSON，并将其作为map属性源添加到{@link Environment}。
+ * 添加新属性的优先级高于系统属性。
  *
  * @author Dave Syer
  * @author Phillip Webb

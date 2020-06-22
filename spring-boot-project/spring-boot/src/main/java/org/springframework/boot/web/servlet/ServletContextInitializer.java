@@ -24,15 +24,11 @@ import org.springframework.web.SpringServletContainerInitializer;
 import org.springframework.web.WebApplicationInitializer;
 
 /**
- * Interface used to configure a Servlet 3.0+ {@link ServletContext context}
- * programmatically. Unlike {@link WebApplicationInitializer}, classes that implement this
- * interface (and do not implement {@link WebApplicationInitializer}) will <b>not</b> be
- * detected by {@link SpringServletContainerInitializer} and hence will not be
- * automatically bootstrapped by the Servlet container.
+ * 用于以编程方式配置Servlet 3.0+{@link ServletContext context}的接口。
+ * 与{@link WebApplicationInitializer}不同，{@link SpringServletContainerInitializer}不会检测到实现此接口的类
+ * ，因此Servlet容器不会自动使用它们启动。
  * <p>
- * This interface is designed to act in a similar way to
- * {@link ServletContainerInitializer}, but have a lifecycle that's managed by Spring and
- * not the Servlet container.
+ * 该接口旨在以类似于{@link ServletContainerInitializer}的方式工作，但是其生命周期由Spring而不是Servlet容器管理。
  * <p>
  * For configuration examples see {@link WebApplicationInitializer}.
  *
@@ -44,8 +40,7 @@ import org.springframework.web.WebApplicationInitializer;
 public interface ServletContextInitializer {
 
 	/**
-	 * Configure the given {@link ServletContext} with any servlets, filters, listeners
-	 * context-params and attributes necessary for initialization.
+	 * 使用初始化所需的所有servlets, filters, listeners,context-params 和 attributes来配置给定的ServletContext。
 	 * @param servletContext the {@code ServletContext} to initialize
 	 * @throws ServletException if any call against the given {@code ServletContext}
 	 * throws a {@code ServletException}

@@ -17,7 +17,7 @@
 package org.springframework.boot.origin;
 
 /**
- * Interface to provide access to the origin of an item.
+ * 用于访问项目来源的接口。
  *
  * @author Phillip Webb
  * @since 2.0.0
@@ -27,7 +27,7 @@ package org.springframework.boot.origin;
 public interface OriginProvider {
 
 	/**
-	 * Return the source origin or {@code null} if the origin is not known.
+	 * 返回来源点，如果来源未知，则返回{@code null}。
 	 * @return the origin or {@code null}
 	 */
 	Origin getOrigin();

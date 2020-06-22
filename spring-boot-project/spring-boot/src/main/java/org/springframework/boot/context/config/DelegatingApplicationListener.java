@@ -36,6 +36,7 @@ import org.springframework.util.StringUtils;
 /**
  * {@link ApplicationListener} that delegates to other listeners that are specified under
  * a {@literal context.listener.classes} environment property.
+ * {@link ApplicationListener}委派给在{@literal context.listener.classes}环境属性下指定的其它侦听器。
  *
  * @author Dave Syer
  * @author Phillip Webb
@@ -65,7 +66,7 @@ public class DelegatingApplicationListener implements ApplicationListener<Applic
 			}
 		}
 		if (this.multicaster != null) {
-			this.multicaster.multicastEvent(event);
+			this.multicaster.multicastEvent(event); // 事件委派给其它侦听器
 		}
 	}
 
@@ -74,6 +75,7 @@ public class DelegatingApplicationListener implements ApplicationListener<Applic
 		if (environment == null) {
 			return Collections.emptyList();
 		}
+		// 从环境变量context.listener.classes获取监听器配置
 		String classNames = environment.getProperty(PROPERTY_NAME);
 		List<ApplicationListener<ApplicationEvent>> listeners = new ArrayList<>();
 		if (StringUtils.hasLength(classNames)) {

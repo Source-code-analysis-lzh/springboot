@@ -12,6 +12,11 @@ org.springframework.boot.SpringBootExceptionReporter=\
 org.springframework.boot.diagnostics.FailureAnalyzers
 
 # Application Context Initializers
+#用来报告Spring容器的一些常见的错误配置的
+#获取应用上下文ID
+#委托给context.initializer.classes环境属性下指定的其他初始值设定项。
+#ApplicationContextInitializer设置服务器实际侦听Environment的端口的属性EmbeddedServletContainer。属性“local.server.port”可以直接注入使用 @Value或通过Environment。
+#如果EmbeddedWebApplicationContext有一个 namespace集合，它将用于构造属性名称。例如，“管理”执行器上下文将具有属性名称“local.management.port”。属性会自动传播到任何父上下文。
 org.springframework.context.ApplicationContextInitializer=\
 org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer,\
 org.springframework.boot.context.ContextIdApplicationContextInitializer,\

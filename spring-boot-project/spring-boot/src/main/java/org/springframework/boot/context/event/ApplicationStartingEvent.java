@@ -27,6 +27,9 @@ import org.springframework.core.env.Environment;
  * available, but after the {@link ApplicationListener}s have been registered. The source
  * of the event is the {@link SpringApplication} itself, but beware of using its internal
  * state too much at this early stage since it might be modified later in the lifecycle.
+ * 可以想象，一旦启动{@link SpringApplication}，便会尽快发布事件--在{@link Environment}或{@link ApplicationContext}可用之前，
+ * 但在{@link ApplicationListener}s已注册之后。 事件的来源是{@link SpringApplication}本身，
+ * 但是要提防在其早期阶段过多使用其内部状态，因为它可能会在生命周期的后期进行修改。
  *
  * @author Phillip Webb
  * @author Madhura Bhave

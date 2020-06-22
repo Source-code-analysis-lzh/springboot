@@ -26,17 +26,16 @@ import java.util.function.Function;
 import org.springframework.util.Assert;
 
 /**
- * A configuration property name composed of elements separated by dots. User created
- * names may contain the characters "{@code a-z}" "{@code 0-9}") and "{@code -}", they
- * must be lower-case and must start with an alpha-numeric character. The "{@code -}" is
- * used purely for formatting, i.e. "{@code foo-bar}" and "{@code foobar}" are considered
- * equivalent.
+ * 由点分隔的元素组成的配置属性名称。 用户创建的名称可以包含字符"{@code a-z}" "{@code 0-9}") 和 "{@code -}"，
+ * 它们必须为小写字母，并且必须以字母数字字符开头。 "{@code -}"仅用于格式化，即"{@code foo-bar}"和"{@code foobar}"被认为是等效的。
  * <p>
  * The "{@code [}" and "{@code ]}" characters may be used to indicate an associative
  * index(i.e. a {@link Map} key or a {@link Collection} index. Indexes names are not
  * restricted and are considered case-sensitive.
+ * "{@code [}" 和 "{@code ]}"字符可用于表示关联索引（即{@link Map}键或{@link Collection}索引。
+ * 索引名称不受限制，并且区分大小写。
  * <p>
- * Here are some typical examples:
+ * 以下是一些典型示例：
  * <ul>
  * <li>{@code spring.main.banner-mode}</li>
  * <li>{@code server.hosts[0].name}</li>

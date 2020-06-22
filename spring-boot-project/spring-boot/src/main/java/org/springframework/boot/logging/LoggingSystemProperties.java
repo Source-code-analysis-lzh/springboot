@@ -24,7 +24,7 @@ import org.springframework.core.env.PropertySourcesPropertyResolver;
 import org.springframework.util.Assert;
 
 /**
- * Utility to set system properties that can later be used by log configuration files.
+ * 设置系统属性的工具类，以后可以在日志配置文件中使用。
  *
  * @author Andy Wilkinson
  * @author Phillip Webb

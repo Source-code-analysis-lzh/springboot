@@ -118,7 +118,7 @@ class SpringApplicationBannerPrinter {
 	}
 
 	/**
-	 * {@link Banner} comprised of other {@link Banner Banners}.
+	 * {@link Banners}由其它{@link Banner}组成。
 	 */
 	private static class Banners implements Banner {
 

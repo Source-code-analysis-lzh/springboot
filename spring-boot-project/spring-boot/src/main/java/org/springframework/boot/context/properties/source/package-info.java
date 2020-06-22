@@ -15,7 +15,7 @@
  */
 
 /**
- * Sources for external configuration properties.
+ * 外部配置属性的源。
  *
  * @see org.springframework.boot.context.properties.source.ConfigurationPropertySource
  */

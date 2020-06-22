@@ -15,6 +15,6 @@
  */
 
 /**
- * Support for describing the availability of Spring Boot applications.
+ * 支持描述Spring Boot应用程序的可用性。
  */
 package org.springframework.boot.availability;

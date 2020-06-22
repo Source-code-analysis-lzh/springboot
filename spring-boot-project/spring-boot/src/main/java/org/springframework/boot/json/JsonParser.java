@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Parser that can read JSON formatted strings into {@link Map}s or {@link List}s.
+ * 解析器可以将JSON格式的字符串读取到{@link Map}或{@link List}中。
  *
  * @author Dave Syer
  * @since 1.0.0
@@ -33,7 +33,7 @@ import java.util.Map;
 public interface JsonParser {
 
 	/**
-	 * Parse the specified JSON string into a Map.
+	 * 将指定的JSON字符串解析为Map。
 	 * @param json the JSON to parse
 	 * @return the parsed JSON as a map
 	 * @throws JsonParseException if the JSON cannot be parsed
@@ -41,7 +41,7 @@ public interface JsonParser {
 	Map<String, Object> parseMap(String json) throws JsonParseException;
 
 	/**
-	 * Parse the specified JSON string into a List.
+	 * 将指定的JSON字符串解析为一个List。
 	 * @param json the JSON to parse
 	 * @return the parsed JSON as a list
 	 * @throws JsonParseException if the JSON cannot be parsed

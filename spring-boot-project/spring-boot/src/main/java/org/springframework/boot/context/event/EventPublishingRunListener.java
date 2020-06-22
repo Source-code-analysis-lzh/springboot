@@ -35,10 +35,9 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.util.ErrorHandler;
 
 /**
- * {@link SpringApplicationRunListener} to publish {@link SpringApplicationEvent}s.
+ * {@link SpringApplicationRunListener}来发布{@link SpringApplicationEvent}s。
  * <p>
- * Uses an internal {@link ApplicationEventMulticaster} for the events that are fired
- * before the context is actually refreshed.
+ * 将内部{@link ApplicationEventMulticaster}用于在实际刷新上下文之前触发的事件。
  *
  * @author Phillip Webb
  * @author Stephane Nicoll
@@ -59,6 +58,7 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 		this.application = application;
 		this.args = args;
 		this.initialMulticaster = new SimpleApplicationEventMulticaster();
+		// 把配置监听器添加到SimpleApplicationEventMulticaster中
 		for (ApplicationListener<?> listener : application.getListeners()) {
 			this.initialMulticaster.addApplicationListener(listener);
 		}
@@ -71,11 +71,14 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 
 	@Override
 	public void starting() {
+		// 触发LoggingApplicationListener
 		this.initialMulticaster.multicastEvent(new ApplicationStartingEvent(this.application, this.args));
 	}
 
 	@Override
 	public void environmentPrepared(ConfigurableEnvironment environment) {
+		// 触发FileEncodingApplicationListener、AnsiOutputApplicationListener、ConfigFileApplicationListener
+		// DelegatingApplicationListener、ClasspathLoggingApplicationListener、LoggingApplicationListener
 		this.initialMulticaster
 				.multicastEvent(new ApplicationEnvironmentPreparedEvent(this.application, this.args, environment));
 	}
@@ -88,18 +91,24 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 
 	@Override
 	public void contextLoaded(ConfigurableApplicationContext context) {
+		// 上下文加载完成后，需要配置注册的监听器，以便后面切换事件发布器
 		for (ApplicationListener<?> listener : this.application.getListeners()) {
 			if (listener instanceof ApplicationContextAware) {
+				// 把应用上下文注入监听器中
 				((ApplicationContextAware) listener).setApplicationContext(context);
 			}
 			context.addApplicationListener(listener);
 		}
+		// 触发CloudFoundryVcapEnvironmentPostProcessor、ConfigFileApplicationListener、LoggingApplicationListener
 		this.initialMulticaster.multicastEvent(new ApplicationPreparedEvent(this.application, this.args, context));
 	}
 
+	// 当应用上下文已经初始化完成，则使用上下文来发布事件
 	@Override
 	public void started(ConfigurableApplicationContext context) {
+		// 使用应用上下文发布事件
 		context.publishEvent(new ApplicationStartedEvent(this.application, this.args, context));
+		// 发布应用可用性事件
 		AvailabilityChangeEvent.publish(context, LivenessState.CORRECT);
 	}
 

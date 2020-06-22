@@ -15,7 +15,7 @@
  */
 
 /**
- * Support classes to provide ANSI color output.
+ * 支持类提供ANSI颜色输出。
  *
  * @see org.springframework.boot.ansi.AnsiOutput
  */

@@ -38,6 +38,8 @@ import org.springframework.util.ReflectionUtils;
 /**
  * Utility to trigger {@link FailureAnalyzer} and {@link FailureAnalysisReporter}
  * instances loaded from {@code spring.factories}.
+ * 触发从{@code spring.factories}加载的{@link FailureAnalyzer}和
+ * {@link FailureAnalysisReporter}实例的工具类。
  * <p>
  * A {@code FailureAnalyzer} that requires access to the {@link BeanFactory} in order to
  * perform its analysis can implement {@code BeanFactoryAware} to have the

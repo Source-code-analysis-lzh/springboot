@@ -17,11 +17,10 @@
 package org.springframework.boot.availability;
 
 /**
- * "Readiness" state of the application.
+ * 应用程序的“就绪”状态。
  * <p>
- * An application is considered ready when it's {@link LivenessState live} and willing to
- * accept traffic. "Readiness" failure means that the application is not able to accept
- * traffic and that the infrastructure should stop routing requests to it.
+ * 当应用程序处于运行状态并且愿意接受流量时，它就被认为已准备就绪。 "Readiness"故障意味着应用程序无法接受流量，
+ * 并且基础结构应停止将请求路由到该应用程序。
  *
  * @author Brian Clozel
  * @since 2.3.0

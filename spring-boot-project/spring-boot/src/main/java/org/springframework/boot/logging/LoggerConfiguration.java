@@ -20,7 +20,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Immutable class that represents the configuration of a {@link LoggingSystem}'s logger.
+ * 表示{@link LoggingSystem}记录器(logger)配置的不可变类。
  *
  * @author Ben Hale
  * @since 1.5.0

@@ -19,7 +19,7 @@ package org.springframework.boot.diagnostics;
 import org.springframework.core.ResolvableType;
 
 /**
- * Abstract base class for most {@code FailureAnalyzer} implementations.
+ * 大多数{@code FailureAnalyzer}实现的抽象基类。
  *
  * @param <T> the type of exception to analyze
  * @author Andy Wilkinson

@@ -15,8 +15,7 @@
  */
 
 /**
- * Fluent 'builder' style API to construct a
- * {@link org.springframework.boot.SpringApplication}.
+ * 流式的“构建器”风格的API，用于构建{@link org.springframework.boot.SpringApplication}。
  *
  * @see org.springframework.boot.builder.SpringApplicationBuilder
  */

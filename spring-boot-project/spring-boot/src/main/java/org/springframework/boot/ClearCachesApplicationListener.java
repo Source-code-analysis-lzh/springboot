@@ -23,15 +23,16 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * {@link ApplicationListener} to cleanup caches once the context is loaded.
+ * 一旦加载上下文后，{@link ApplicationListener}清理缓存。
  *
  * @author Phillip Webb
  */
 class ClearCachesApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
+	// 监听上下文刷新事件
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		ReflectionUtils.clearCache();
+		ReflectionUtils.clearCache(); // 清空ReflectionUtils中缓存
 		clearClassLoaderCaches(Thread.currentThread().getContextClassLoader());
 	}
 
@@ -46,7 +47,7 @@ class ClearCachesApplicationListener implements ApplicationListener<ContextRefre
 		catch (Exception ex) {
 			// Ignore
 		}
-		clearClassLoaderCaches(classLoader.getParent());
+		clearClassLoaderCaches(classLoader.getParent()); // 递归清空
 	}
 
 }

@@ -15,6 +15,6 @@
  */
 
 /**
- * Logging integration with Spring's Application Context.
+ * 与Spring的应用程序上下文进行日志集成。
  */
 package org.springframework.boot.context.logging;

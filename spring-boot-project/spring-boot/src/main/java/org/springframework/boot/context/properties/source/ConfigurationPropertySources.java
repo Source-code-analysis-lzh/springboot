@@ -29,7 +29,7 @@ import org.springframework.core.env.PropertySourcesPropertyResolver;
 import org.springframework.util.Assert;
 
 /**
- * Provides access to {@link ConfigurationPropertySource ConfigurationPropertySources}.
+ * 提供对{@link ConfigurationPropertySource ConfigurationPropertySources}的访问。
  *
  * @author Phillip Webb
  * @since 2.0.0
@@ -45,9 +45,7 @@ public final class ConfigurationPropertySources {
 	}
 
 	/**
-	 * Determines if the specific {@link PropertySource} is the
-	 * {@link ConfigurationPropertySource} that was {@link #attach(Environment) attached}
-	 * to the {@link Environment}.
+	 * 确定指定的{@link PropertySource}是否附加到{@link Environment}的{@link ConfigurationPropertySource}。
 	 * @param propertySource the property source to test
 	 * @return {@code true} if this is the attached {@link ConfigurationPropertySource}
 	 */
@@ -61,6 +59,9 @@ public final class ConfigurationPropertySources {
 	 * to a {@link ConfigurationPropertySource} and allows classic
 	 * {@link PropertySourcesPropertyResolver} calls to resolve using
 	 * {@link ConfigurationPropertyName configuration property names}.
+	 * 将{@link ConfigurationPropertySource}支持添加到指定的{@link Environment}中。
+	 * 使环境管理的每个{@link PropertySource}适应于{@link ConfigurationPropertySource}，
+	 * 并允许经典的{@link PropertySourcesPropertyResolver}调用使用{@link ConfigurationPropertyName 配置属性名称}进行解析。
 	 * <p>
 	 * The attached resolver will dynamically track any additions or removals from the
 	 * underlying {@link Environment} property sources.
@@ -72,11 +73,12 @@ public final class ConfigurationPropertySources {
 		Assert.isInstanceOf(ConfigurableEnvironment.class, environment);
 		MutablePropertySources sources = ((ConfigurableEnvironment) environment).getPropertySources();
 		PropertySource<?> attached = sources.get(ATTACHED_PROPERTY_SOURCE_NAME);
+		// 如果环境中属性源已经变更，则需要替换注册ConfigurationPropertySourcesPropertySource
 		if (attached != null && attached.getSource() != sources) {
 			sources.remove(ATTACHED_PROPERTY_SOURCE_NAME);
 			attached = null;
 		}
-		if (attached == null) {
+		if (attached == null) { // 该属性源位于第一位
 			sources.addFirst(new ConfigurationPropertySourcesPropertySource(ATTACHED_PROPERTY_SOURCE_NAME,
 					new SpringConfigurationPropertySources(sources)));
 		}

@@ -20,7 +20,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
 /**
- * Context passed to the {@link LoggingSystem} during initialization.
+ * 初始化期间将上下文传递给{@link LoggingSystem}。
  *
  * @author Phillip Webb
  * @since 1.3.0

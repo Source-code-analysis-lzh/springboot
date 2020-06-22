@@ -25,10 +25,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * A reference to a log output file. Log output files are specified using
- * {@code logging.file.name} or {@code logging.file.path} {@link Environment} properties.
- * If the {@code logging.file.name} property is not specified {@code "spring.log"} will be
- * written in the {@code logging.file.path} directory.
+ * 对日志输出文件的引用。 日志输出文件是使用{@code logging.file.name}或{@code logging.file.path} {@link Environment}属性指定的。
+ * 如果未指定{@code logging.file.name}属性，将在{@code logging.file.path}目录中写入{@code "spring.log"}。
  *
  * @author Phillip Webb
  * @author Christian Carriere-Tisseur

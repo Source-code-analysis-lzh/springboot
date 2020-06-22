@@ -29,6 +29,12 @@ import java.lang.annotation.Target;
  * {@code spring-boot-configuration-processor} as a hint that a field is not bound as a
  * single value. When this is specified, a nested group is created for the field and its
  * type is harvested.
+ * 指示{@link ConfigurationProperties @ConfigurationProperties}对象中的字段应被视为嵌套类型。
+ * 这个注释与实际的绑定过程没有关系，但是它被{@code spring-boot-configuration-processor}用来暗示一个字段没有被绑定为单个值。
+ * 指定此选项后，将为该字段创建一个嵌套组，并获取其类型。
+ *
+ * 如果不添加该注解，则不会生成单独的属性组。
+ *
  * <p>
  * This has no effect on collections and maps as these types are automatically identified.
  *

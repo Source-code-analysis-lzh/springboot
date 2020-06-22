@@ -19,12 +19,11 @@ package org.springframework.boot.availability;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Provides {@link AvailabilityState availability state} information for the application.
+ * 提供应用程序的{@link AvailabilityState 可用性状态}信息。
  * <p>
- * Components can inject this class to get the current state information. To update the
- * state of the application an {@link AvailabilityChangeEvent} should be
- * {@link ApplicationContext#publishEvent published} to the application context with
- * directly or via {@link AvailabilityChangeEvent#publish}.
+ * 组件可以注入此类以获取当前状态信息。 要更新应用{@link AvailabilityChangeEvent}，应该直接或通过
+ * {@link AvailabilityChangeEvent#publish}将{@link AvailabilityChangeEvent}
+ * {@link ApplicationContext#publishEvent 发布}到应用程序上下文。
  *
  * @author Brian Clozel
  * @author Phillip Webb

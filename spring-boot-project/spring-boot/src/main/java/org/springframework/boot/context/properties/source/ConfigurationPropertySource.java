@@ -21,7 +21,7 @@ import java.util.function.Predicate;
 import org.springframework.boot.origin.OriginTrackedValue;
 
 /**
- * A source of {@link ConfigurationProperty ConfigurationProperties}.
+ * 一个{@link ConfigurationProperty ConfigurationProperties}类型的源。
  *
  * @author Phillip Webb
  * @author Madhura Bhave
@@ -34,19 +34,15 @@ import org.springframework.boot.origin.OriginTrackedValue;
 public interface ConfigurationPropertySource {
 
 	/**
-	 * Return a single {@link ConfigurationProperty} from the source or {@code null} if no
-	 * property can be found.
+	 * 从源返回单个{@link ConfigurationProperty} 如果找不到属性，则返回{@code null}。
 	 * @param name the name of the property (must not be {@code null})
 	 * @return the associated object or {@code null}.
 	 */
 	ConfigurationProperty getConfigurationProperty(ConfigurationPropertyName name);
 
 	/**
-	 * Returns if the source contains any descendants of the specified name. May return
-	 * {@link ConfigurationPropertyState#PRESENT} or
-	 * {@link ConfigurationPropertyState#ABSENT} if an answer can be determined or
-	 * {@link ConfigurationPropertyState#UNKNOWN} if it's not possible to determine a
-	 * definitive answer.
+	 * 返回源是否包含指定名称的任何后代。 如果可以确定答案，则可以返回{@link ConfigurationPropertyState#PRESENT}
+	 * 或{@link ConfigurationPropertyState#ABSENT}；如果无法确定确定的答案，则可以返回{@link ConfigurationPropertyState#UNKNOWN}。
 	 * @param name the name to check
 	 * @return if the source contains any descendants
 	 */
@@ -55,8 +51,7 @@ public interface ConfigurationPropertySource {
 	}
 
 	/**
-	 * Return a filtered variant of this source, containing only names that match the
-	 * given {@link Predicate}.
+	 * 返回此源的已过滤变体，仅包含与给定{@link Predicate}匹配的名称。
 	 * @param filter the filter to match
 	 * @return a filtered {@link ConfigurationPropertySource} instance
 	 */
@@ -65,7 +60,7 @@ public interface ConfigurationPropertySource {
 	}
 
 	/**
-	 * Return a variant of this source that supports name aliases.
+	 * 返回此源的变体，该变体支持名称别名。
 	 * @param aliases a function that returns a stream of aliases for any given name
 	 * @return a {@link ConfigurationPropertySource} instance supporting name aliases
 	 */
@@ -74,7 +69,7 @@ public interface ConfigurationPropertySource {
 	}
 
 	/**
-	 * Return the underlying source that is actually providing the properties.
+	 * 返回实际提供属性的底层源。
 	 * @return the underlying property source or {@code null}.
 	 */
 	default Object getUnderlyingSource() {

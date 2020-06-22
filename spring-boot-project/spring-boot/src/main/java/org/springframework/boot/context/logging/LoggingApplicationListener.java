@@ -57,23 +57,20 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * An {@link ApplicationListener} that configures the {@link LoggingSystem}. If the
- * environment contains a {@code logging.config} property it will be used to bootstrap the
- * logging system, otherwise a default configuration is used. Regardless, logging levels
- * will be customized if the environment contains {@code logging.level.*} entries and
- * logging groups can be defined with {@code logging.group}.
+ * 一个配置{@link LoggingSystem}的ApplicationListener。 如果环境包含{@code logging.config}属性，
+ * 它将用于启动日志记录系统，否则将使用默认配置。 无论如何，如果环境包含{@code logging.level.*}条目和
+ * {@code logging.group}定义的日志记录组，则可以自定义日志。
  * <p>
- * Debug and trace logging for Spring, Tomcat, Jetty and Hibernate will be enabled when
- * the environment contains {@code debug} or {@code trace} properties that aren't set to
- * {@code "false"} (i.e. if you start your application using
- * {@literal java -jar myapp.jar [--debug | --trace]}). If you prefer to ignore these
- * properties you can set {@link #setParseArgs(boolean) parseArgs} to {@code false}.
+ * 当环境包含未设置为{@code "false"}的{@code debug} or {@code trace}属性
+ * （即，如果您使用{@literal java -jar myapp.jar [--debug | --trace]}启动应用程序）时，将
+ * 启用Spring，Tomcat，Jetty和Hibernate的调试和跟踪日志记录）。 如果您想忽略这些属性，
+ * 可以将{@link #setParseArgs(boolean) parseArgs}设置为{@code false}。
  * <p>
- * By default, log output is only written to the console. If a log file is required, the
- * {@code logging.file.path} and {@code logging.file.name} properties can be used.
+ * 默认情况下，日志输出仅写入控制台。 如果需要日志文件，则可以使用{@code logging.file.path}和{@code logging.file.name}属性。
  * <p>
  * Some system properties may be set as side effects, and these can be useful if the
  * logging configuration supports placeholders (i.e. log4j or logback):
+ * 某些系统属性可能会设置为副作用，如果日志记录配置支持占位符（例如log4j或logback），则这些属性可能会很有用：
  * <ul>
  * <li>{@code LOG_FILE} is set to the value of path of the log file that should be written
  * (if any).</li>
@@ -109,6 +106,7 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 	/**
 	 * The name of the Spring property that contains a reference to the logging
 	 * configuration to load.
+	 * Spring属性的名称，该属性包含对要加载的日志记录配置的引用。
 	 */
 	public static final String CONFIG_PROPERTY = "logging.config";
 
@@ -209,45 +207,55 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+		// 在springboot启动的时候
 		if (event instanceof ApplicationStartingEvent) {
 			onApplicationStartingEvent((ApplicationStartingEvent) event);
 		}
+		// springboot的Environment环境准备完成的时候
 		else if (event instanceof ApplicationEnvironmentPreparedEvent) {
 			onApplicationEnvironmentPreparedEvent((ApplicationEnvironmentPreparedEvent) event);
 		}
+		// 在springboot容器的环境设置完成以后
 		else if (event instanceof ApplicationPreparedEvent) {
 			onApplicationPreparedEvent((ApplicationPreparedEvent) event);
 		}
+		// 容器关闭的时候
 		else if (event instanceof ContextClosedEvent
 				&& ((ContextClosedEvent) event).getApplicationContext().getParent() == null) {
 			onContextClosedEvent();
 		}
+		// 容器启动失败的时候
 		else if (event instanceof ApplicationFailedEvent) {
 			onApplicationFailedEvent();
 		}
 	}
 
+	// 应用启动时实例化日志系统
 	private void onApplicationStartingEvent(ApplicationStartingEvent event) {
+		// 获取日志系统实例对象
 		this.loggingSystem = LoggingSystem.get(event.getSpringApplication().getClassLoader());
 		this.loggingSystem.beforeInitialize();
 	}
-
+	// 应用环境准备好后初始化日志系统
 	private void onApplicationEnvironmentPreparedEvent(ApplicationEnvironmentPreparedEvent event) {
 		if (this.loggingSystem == null) {
 			this.loggingSystem = LoggingSystem.get(event.getSpringApplication().getClassLoader());
 		}
 		initialize(event.getEnvironment(), event.getSpringApplication().getClassLoader());
 	}
-
+	// 应用上下文准备完成后
 	private void onApplicationPreparedEvent(ApplicationPreparedEvent event) {
 		ConfigurableListableBeanFactory beanFactory = event.getApplicationContext().getBeanFactory();
 		if (!beanFactory.containsBean(LOGGING_SYSTEM_BEAN_NAME)) {
+			// 把前面初始化的日志系统注册到bean工厂中
 			beanFactory.registerSingleton(LOGGING_SYSTEM_BEAN_NAME, this.loggingSystem);
 		}
 		if (this.logFile != null && !beanFactory.containsBean(LOG_FILE_BEAN_NAME)) {
+			// 把前面初始化的日志文件注册到bean工厂中
 			beanFactory.registerSingleton(LOG_FILE_BEAN_NAME, this.logFile);
 		}
 		if (this.loggerGroups != null && !beanFactory.containsBean(LOGGER_GROUPS_BEAN_NAME)) {
+			// 把前面初始化的记录器组注册到bean工厂中
 			beanFactory.registerSingleton(LOGGER_GROUPS_BEAN_NAME, this.loggerGroups);
 		}
 	}
@@ -265,20 +273,28 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 	}
 
 	/**
-	 * Initialize the logging system according to preferences expressed through the
-	 * {@link Environment} and the classpath.
+	 * 根据{@link Environment}和类路径表示的首选项初始化日志记录系统。
 	 * @param environment the environment
 	 * @param classLoader the classloader
 	 */
 	protected void initialize(ConfigurableEnvironment environment, ClassLoader classLoader) {
+		// LoggingSystemProperties的访问级别为package, 主要功用是读取用户自定义配置的logging.exception-conversion-word，
+		// logging.pattern.console，logging.pattern.file，logging.pattern.level属性值,
+		// 并推入到System Property中，以便在相应的配置文件中使用，
+		// 例如log4j2的`spring-boot-1.5.7.RELEASE.jar!/org/springframework/boot/logging/log4j2/log4j2.xml`中的
+		// `${sys:LOG_EXCEPTION_CONVERSION_WORD}`。
 		new LoggingSystemProperties(environment).apply();
+		// 如果用户设置了logging.file 和 logging.path 配置属性，则进行日志文本化输出。
 		this.logFile = LogFile.get(environment);
 		if (this.logFile != null) {
 			this.logFile.applyToSystemProperties();
 		}
 		this.loggerGroups = new LoggerGroups(DEFAULT_GROUP_LOGGERS);
+		// 读取用户是否配置了 debug=true 或 trace=true 来查看更详尽的日志。
 		initializeEarlyLoggingLevel(environment);
+		// 这里会使用用户配置的 logging.config=classpath:config/log4j2.xml 去初始化 日志系统
 		initializeSystem(environment, this.loggingSystem, this.logFile);
+		// 设置各个日志Log的级别, 例如 用户自定义配置的 logging.level.root=debug就是在这里生效的
 		initializeFinalLoggingLevels(environment, this.loggingSystem);
 		registerShutdownHookIfNecessary(environment, this.loggingSystem);
 	}

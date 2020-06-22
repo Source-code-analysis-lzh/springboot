@@ -30,10 +30,9 @@ import org.springframework.context.event.SmartApplicationListener;
 import org.springframework.core.ResolvableType;
 
 /**
- * A {@link SmartApplicationListener} that reacts to
- * {@link ApplicationEnvironmentPreparedEvent environment prepared events} and to
- * {@link ApplicationFailedEvent failed events} by logging the classpath of the thread
- * context class loader (TCCL) at {@code DEBUG} level.
+ * 一个{@link SmartApplicationListener}，它通过在{@code DEBUG}
+ * 级别记录线程上下文类加载器（TCCL）的类路径来响应{@link ApplicationEnvironmentPreparedEvent 环境准备的事件}
+ * 和{@link ApplicationFailedEvent 失败的事件}。
  *
  * @author Andy Wilkinson
  * @since 2.0.0

@@ -28,7 +28,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Common abstraction over logging systems.
+ * 日志系统上的通用抽象。
  *
  * @author Phillip Webb
  * @author Dave Syer
@@ -143,18 +143,22 @@ public abstract class LoggingSystem {
 	}
 
 	/**
-	 * Detect and return the logging system in use. Supports Logback and Java Logging.
+	 * 检测并返回正在使用的日志系统。 支持Logback和Java日志记录。
 	 * @param classLoader the classloader
 	 * @return the logging system
 	 */
 	public static LoggingSystem get(ClassLoader classLoader) {
+		// 检测系统属性中是否存在org.springframework.boot.logging.LoggingSystem变量，它的值为LoggingSystem实现的完全类名称
 		String loggingSystem = System.getProperty(SYSTEM_PROPERTY);
 		if (StringUtils.hasLength(loggingSystem)) {
+			// 如果只为none，则使用空操作日志系统
 			if (NONE.equals(loggingSystem)) {
 				return new NoOpLoggingSystem();
 			}
+			// 如果是其它自定义类，则实例化
 			return get(classLoader, loggingSystem);
 		}
+		// 如果没有设置上面的属性，则按照logback, log4j2, jdk log 的顺序在classpath下搜寻， 先找到的将胜出
 		return SYSTEMS.entrySet().stream().filter((entry) -> ClassUtils.isPresent(entry.getKey(), classLoader))
 				.map((entry) -> get(classLoader, entry.getValue())).findFirst()
 				.orElseThrow(() -> new IllegalStateException("No suitable logging system located"));
@@ -173,7 +177,7 @@ public abstract class LoggingSystem {
 	}
 
 	/**
-	 * {@link LoggingSystem} that does nothing.
+	 * {@link LoggingSystem}什么也不做。
 	 */
 	static class NoOpLoggingSystem extends LoggingSystem {
 

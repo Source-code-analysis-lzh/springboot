@@ -187,8 +187,8 @@ public class Binder {
 	}
 
 	/**
-	 * Bind the specified target {@link Bindable} using this binder's
-	 * {@link ConfigurationPropertySource property sources}.
+	 * 使用此绑定器的{@link ConfigurationPropertySource property sources}
+	 * 绑定指定的目标{@link Bindable}。
 	 * @param name the configuration property name to bind
 	 * @param target the target bindable
 	 * @param <T> the bound type
@@ -482,7 +482,7 @@ public class Binder {
 	}
 
 	/**
-	 * Create a new {@link Binder} instance from the specified environment.
+	 * 从指定的环境中创建一个新的{@link Binder}实例。
 	 * @param environment the environment source (must have attached
 	 * {@link ConfigurationPropertySources})
 	 * @return a {@link Binder} instance

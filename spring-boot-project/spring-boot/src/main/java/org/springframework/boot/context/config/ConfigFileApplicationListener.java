@@ -77,9 +77,9 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link EnvironmentPostProcessor} that configures the context environment by loading
- * properties from well known file locations. By default properties will be loaded from
- * 'application.properties' and/or 'application.yml' files in the following locations:
+ * 搜索并加载配置文件，根据配置文件设置Environment和SpringApplication。
+ * 通过从已知文件位置加载属性来配置上下文环境的{@link EnvironmentPostProcessor}。
+ * 默认情况下，属性将从'application.properties'和/或'application.yml'文件中的以下位置加载：
  * <ul>
  * <li>file:./config/</li>
  * <li>file:./config/{@literal *}/</li>
@@ -87,19 +87,14 @@ import org.springframework.util.StringUtils;
  * <li>classpath:config/</li>
  * <li>classpath:</li>
  * </ul>
- * The list is ordered by precedence (properties defined in locations higher in the list
- * override those defined in lower locations).
+ * 该列表按优先级排序（在列表较高位置定义的属性会覆盖在较低位置定义的属性）。
  * <p>
- * Alternative search locations and names can be specified using
- * {@link #setSearchLocations(String)} and {@link #setSearchNames(String)}.
+ * 可以使用{@link #setSearchLocations(String)}和{@link #setSearchNames(String)}指定其它搜索位置和名称。
  * <p>
- * Additional files will also be loaded based on active profiles. For example if a 'web'
- * profile is active 'application-web.properties' and 'application-web.yml' will be
- * considered.
+ * 还将根据活动的配置文件加载其它文件。 例如，如果'web'配置文件处于活动状态，
+ * 则将考虑'application-web.properties'和'application-web.yml'。
  * <p>
- * The 'spring.config.name' property can be used to specify an alternative name to load
- * and the 'spring.config.location' property can be used to specify alternative search
- * locations or specific files.
+ * 'spring.config.name'属性可用于指定要加载的替代名称，'spring.config.location'属性可用于指定替代搜索位置或特定文件。
  * <p>
  *
  * @author Dave Syer
@@ -184,17 +179,20 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+		// 应用环境准备完成事件
 		if (event instanceof ApplicationEnvironmentPreparedEvent) {
 			onApplicationEnvironmentPreparedEvent((ApplicationEnvironmentPreparedEvent) event);
 		}
+		// 应用准备完成事件
 		if (event instanceof ApplicationPreparedEvent) {
 			onApplicationPreparedEvent(event);
 		}
 	}
 
 	private void onApplicationEnvironmentPreparedEvent(ApplicationEnvironmentPreparedEvent event) {
+		// 加载配置中环境后处理器
 		List<EnvironmentPostProcessor> postProcessors = loadPostProcessors();
-		postProcessors.add(this);
+		postProcessors.add(this); // 当前类也是一个环境后处理器，且拥有最高优先级
 		AnnotationAwareOrderComparator.sort(postProcessors);
 		for (EnvironmentPostProcessor postProcessor : postProcessors) {
 			postProcessor.postProcessEnvironment(event.getEnvironment(), event.getSpringApplication());
@@ -216,18 +214,21 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 	}
 
 	/**
-	 * Add config file property sources to the specified environment.
+	 * 将配置文件属性源添加到指定的环境。
 	 * @param environment the environment to add source to
 	 * @param resourceLoader the resource loader
 	 * @see #addPostProcessors(ConfigurableApplicationContext)
 	 */
 	protected void addPropertySources(ConfigurableEnvironment environment, ResourceLoader resourceLoader) {
+		// 添加随机值属性源到环境中
 		RandomValuePropertySource.addToEnvironment(environment);
+		// 读取applicaiton.yml, application.properties等配置文件
 		new Loader(environment, resourceLoader).load();
 	}
 
 	/**
 	 * Add appropriate post-processors to post-configure the property-sources.
+	 * 添加适当的后处理器来过后配置属性源。
 	 * @param context the context to configure
 	 */
 	protected void addPostProcessors(ConfigurableApplicationContext context) {
@@ -270,6 +271,8 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 	/**
 	 * {@link BeanFactoryPostProcessor} to re-order our property sources below any
 	 * {@code @PropertySource} items added by the {@link ConfigurationClassPostProcessor}.
+	 * {@link BeanFactoryPostProcessor}来为{@link ConfigurationClassPostProcessor}添加的任何
+	 * {@code @PropertySource}项重新排列我们的属性源。
 	 */
 	private static class PropertySourceOrderingPostProcessor implements BeanFactoryPostProcessor, Ordered {
 
@@ -292,6 +295,7 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 		private void reorderSources(ConfigurableEnvironment environment) {
 			PropertySource<?> defaultProperties = environment.getPropertySources().remove(DEFAULT_PROPERTIES);
 			if (defaultProperties != null) {
+				// 把默认属性源排到最后
 				environment.getPropertySources().addLast(defaultProperties);
 			}
 		}
@@ -311,6 +315,7 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 
 		private final ResourceLoader resourceLoader;
 
+		//资源加载工具类，存在PropertiesPropertySourceLoader和YamlPropertySourceLoader
 		private final List<PropertySourceLoader> propertySourceLoaders;
 
 		private Deque<Profile> profiles;
@@ -339,10 +344,11 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 						this.processedProfiles = new LinkedList<>();
 						this.activatedProfiles = false;
 						this.loaded = new LinkedHashMap<>();
+						// 初始化Profiles，将所有的profile增加到prifiles集合中
 						initializeProfiles();
 						while (!this.profiles.isEmpty()) {
 							Profile profile = this.profiles.poll();
-							if (isDefaultProfile(profile)) {
+							if (isDefaultProfile(profile)) { // 如果是默认profile
 								addProfileToEnvironment(profile.getName());
 							}
 							load(profile, this::getPositiveProfileFilter,
@@ -356,16 +362,18 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 		}
 
 		/**
-		 * Initialize profile information from both the {@link Environment} active
-		 * profiles and any {@code spring.profiles.active}/{@code spring.profiles.include}
-		 * properties that are already set.
+		 * 从{@link Environment}活动配置(profiles)文件和任何已设置的
+		 * {@code spring.profiles.active}/{@code spring.profiles.include}属性中初始化配置文件信息。
+		 * spring.profiles.include属性可以用来无条件的添加生效的配置。
 		 */
 		private void initializeProfiles() {
 			// The default profile for these purposes is represented as null. We add it
 			// first so that it is processed first and has lowest priority.
 			this.profiles.add(null);
 			Binder binder = Binder.get(this.environment);
+			// 获取已经激活的profiles
 			Set<Profile> activatedViaProperty = getProfiles(binder, ACTIVE_PROFILES_PROPERTY);
+			// 获取已经无条件的添加生效的配置
 			Set<Profile> includedViaProperty = getProfiles(binder, INCLUDE_PROFILES_PROPERTY);
 			List<Profile> otherActiveProfiles = getOtherActiveProfiles(activatedViaProperty, includedViaProperty);
 			this.profiles.addAll(otherActiveProfiles);
@@ -661,16 +669,18 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 		}
 
 		private void addProfileToEnvironment(String profile) {
+			// 激活的Profile已经存在该默认Profile，则直接返回
 			for (String activeProfile : this.environment.getActiveProfiles()) {
 				if (activeProfile.equals(profile)) {
 					return;
 				}
 			}
-			this.environment.addActiveProfile(profile);
+			this.environment.addActiveProfile(profile); // 添加默认Profile
 		}
 
 		private Set<String> getSearchLocations() {
 			Set<String> locations = getSearchLocations(CONFIG_ADDITIONAL_LOCATION_PROPERTY);
+			// 如果环境指定，则添加额外搜索位置
 			if (this.environment.containsProperty(CONFIG_LOCATION_PROPERTY)) {
 				locations.addAll(getSearchLocations(CONFIG_LOCATION_PROPERTY));
 			}

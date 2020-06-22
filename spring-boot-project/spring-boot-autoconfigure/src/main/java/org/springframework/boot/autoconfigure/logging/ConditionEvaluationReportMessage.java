@@ -34,7 +34,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
 /**
- * A condition evaluation report message that can logged or printed.
+ * 可以记录或打印的条件评估报告消息。
  *
  * @author Phillip Webb
  * @author Andy Wilkinson

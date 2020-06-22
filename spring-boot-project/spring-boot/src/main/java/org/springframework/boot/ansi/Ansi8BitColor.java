@@ -19,7 +19,7 @@ package org.springframework.boot.ansi;
 import org.springframework.util.Assert;
 
 /**
- * {@link AnsiElement} implementation for ANSI 8-bit foreground or background color codes.
+ * {@link AnsiElement}实现用于ANSI 8位前景色或背景色代码。
  *
  * @author Toshiaki Maki
  * @author Phillip Webb

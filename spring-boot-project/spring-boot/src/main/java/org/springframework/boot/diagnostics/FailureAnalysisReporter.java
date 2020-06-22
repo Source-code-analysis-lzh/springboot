@@ -17,7 +17,7 @@
 package org.springframework.boot.diagnostics;
 
 /**
- * Reports a {@code FailureAnalysis} to the user.
+ * 向用户报告{@code FailureAnalysis}。
  *
  * @author Andy Wilkinson
  * @since 1.4.0
@@ -26,7 +26,7 @@ package org.springframework.boot.diagnostics;
 public interface FailureAnalysisReporter {
 
 	/**
-	 * Reports the given {@code failureAnalysis} to the user.
+	 * 向用户报告给定的{@code failureAnalysis}。
 	 * @param analysis the analysis
 	 */
 	void report(FailureAnalysis analysis);

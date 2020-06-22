@@ -27,7 +27,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Abstract base class for {@link LoggingSystem} implementations that utilize SLF4J.
+ * 使用SLF4J的{@link LoggingSystem}实现的抽象基类。
  *
  * @author Andy Wilkinson
  * @since 1.2.0

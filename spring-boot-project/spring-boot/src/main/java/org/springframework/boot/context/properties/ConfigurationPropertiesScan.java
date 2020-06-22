@@ -26,14 +26,11 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
 /**
- * Configures the base packages used when scanning for
- * {@link ConfigurationProperties @ConfigurationProperties} classes. One of
- * {@link #basePackageClasses()}, {@link #basePackages()} or its alias {@link #value()}
- * may be specified to define specific packages to scan. If specific packages are not
- * defined scanning will occur from the package of the class with this annotation.
+ * 配置在基本软件包中扫描使用{@link ConfigurationProperties @ConfigurationProperties}注释的类。
+ * 可以指定{@link #basePackageClasses()}, {@link #basePackages()}或其别名{@link #value()}之一来定义要扫描的特定程序包。
+ * 如果未定义特定的程序包，将使用带有此注释的类的程序包进行扫描。
  * <p>
- * Note: Classes annotated or meta-annotated with {@link Component @Component} will not be
- * picked up by this annotation.
+ * 注意：用{@link Component @Component}注释或它为元注释的类将不会被该注释拾取。
  *
  * @author Madhura Bhave
  * @since 2.2.0

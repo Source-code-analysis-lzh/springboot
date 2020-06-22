@@ -15,7 +15,6 @@
  */
 
 /**
- * {@link org.springframework.context.ApplicationEvent ApplicationEvents} triggered by
- * Spring Boot.
+ * 由Spring Boot触发的{@link org.springframework.context.ApplicationEvent ApplicationEvents}。
  */
 package org.springframework.boot.context.event;

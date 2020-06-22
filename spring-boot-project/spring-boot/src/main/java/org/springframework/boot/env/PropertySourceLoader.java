@@ -24,8 +24,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.SpringFactoriesLoader;
 
 /**
- * Strategy interface located via {@link SpringFactoriesLoader} and used to load a
- * {@link PropertySource}.
+ * 通过{@link SpringFactoriesLoader}定位并用于加载{@link PropertySource}的策略接口。
  *
  * @author Dave Syer
  * @author Phillip Webb
@@ -34,7 +33,7 @@ import org.springframework.core.io.support.SpringFactoriesLoader;
 public interface PropertySourceLoader {
 
 	/**
-	 * Returns the file extensions that the loader supports (excluding the '.').
+	 * 返回加载程序支持的文件扩展名（不包括'.'）。
 	 * @return the file extensions
 	 */
 	String[] getFileExtensions();
@@ -43,6 +42,7 @@ public interface PropertySourceLoader {
 	 * Load the resource into one or more property sources. Implementations may either
 	 * return a list containing a single source, or in the case of a multi-document format
 	 * such as yaml a source for each document in the resource.
+	 * 将资源加载到一个或多个属性源中。 实现可以返回包含单个源的列表，或者在多文档格式（例如yaml）的情况下，返回资源中每个文档的源。
 	 * @param name the root name of the property source. If multiple documents are loaded
 	 * an additional suffix should be added to the name for each source loaded.
 	 * @param resource the resource to load

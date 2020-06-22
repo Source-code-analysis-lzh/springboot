@@ -24,7 +24,7 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.boot.convert.DurationUnit;
 
 /**
- * Configuration properties for Message Source.
+ * 消息源的配置属性。
  *
  * @author Stephane Nicoll
  * @author Kedar Joshi

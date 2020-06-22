@@ -33,11 +33,13 @@ import org.springframework.util.StringUtils;
  * form {@code AnsiStyle.BOLD}, {@code AnsiColor.RED} or {@code AnsiBackground.GREEN}.
  * Also supports a prefix of {@code Ansi.} which is an aggregation of everything (with
  * background colors prefixed {@code BG_}).
+ * 适用于{@link AnsiStyle}, {@link AnsiColor},{@link AnsiBackground} 和 {@link Ansi8BitColor}
+ * 元素的{@link PropertyResolver}。 支持以下形式的属性：{@code AnsiStyle.BOLD}, {@code AnsiColor.RED}或
+ * {@code AnsiBackground.GREEN}。 还支持{@code Ansi.}的前缀。 这是所有内容的集合（背景颜色以{@code BG_}为前缀）。
  * <p>
- * ANSI 8-bit color codes can be used with {@code AnsiColor} and {@code AnsiBackground}.
- * For example, {@code AnsiColor.208} will render orange text.
- * <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia</a> has a complete
- * list of the 8-bit color codes that can be used.
+ * ANSI 8位颜色代码可与{@code AnsiColor}和{@code AnsiBackground}一起使用。
+ * 例如，{@code AnsiColor.208}将呈现橙色文本。
+ * <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">维基百科</a>上有可以使用的8位颜色代码的完整列表。
  *
  * @author Phillip Webb
  * @author Toshiaki Maki
@@ -65,7 +67,7 @@ public class AnsiPropertySource extends PropertySource<AnsiElement> {
 	/**
 	 * Create a new {@link AnsiPropertySource} instance.
 	 * @param name the name of the property source
-	 * @param encode if the output should be encoded
+	 * @param encode 是否应该对输出进行编码
 	 */
 	public AnsiPropertySource(String name, boolean encode) {
 		super(name);

@@ -17,7 +17,7 @@
 package org.springframework.boot.ansi;
 
 /**
- * {@link AnsiElement Ansi} styles.
+ * {@link AnsiElement Ansi}样式。
  *
  * @author Phillip Webb
  * @since 1.3.0

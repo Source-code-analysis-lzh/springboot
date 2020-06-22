@@ -40,12 +40,9 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 
 /**
- * {@link GenericWebApplicationContext}that accepts annotated classes as input - in
- * particular {@link Configuration @Configuration}-annotated classes, but also plain
- * {@link Component @Component} classes and JSR-330 compliant classes using
- * {@code javax.inject} annotations. Allows for registering classes one by one (specifying
- * class names as config location) as well as for classpath scanning (specifying base
- * packages as config location).
+ * 接受带注释的类作为输入的{@link GenericWebApplicationContext}-特别是{@link Configuration @Configuration}注释的类，
+ * 但也使用{@code javax.inject}注释接受普通的{@link Component @Component}类和符合JSR-330的类。
+ * 允许一对一注册类（将类名指定为配置位置），以及进行类路径扫描（将基本包指定为配置位置）。
  * <p>
  * Note: In case of multiple {@code @Configuration} classes, later {@code @Bean}
  * definitions will override ones defined in earlier loaded files. This can be leveraged
@@ -201,7 +198,7 @@ public class AnnotationConfigServletWebApplicationContext extends GenericWebAppl
 	protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 		super.postProcessBeanFactory(beanFactory);
 		if (!ObjectUtils.isEmpty(this.basePackages)) {
-			this.scanner.scan(this.basePackages);
+			this.scanner.scan(this.basePackages); // 启动扫描
 		}
 		if (!this.annotatedClasses.isEmpty()) {
 			this.reader.register(ClassUtils.toClassArray(this.annotatedClasses));

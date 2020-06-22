@@ -29,9 +29,10 @@ import org.springframework.core.Ordered;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Listener that closes the application context if its parent is closed. It listens for
- * refresh events and grabs the current context from there, and then listens for closed
- * events and propagates it down the hierarchy.
+ * 如果其父级已关闭，则关闭当前应用程序上下文的侦听器。
+ * 它侦听刷新事件并从那里获取当前上下文，然后侦听关闭事件并将其传播到层次结构中。
+ *
+ * 当父上下文关闭，则关闭当前应用上下文。
  *
  * @author Dave Syer
  * @author Eric Bottard

@@ -19,12 +19,9 @@ package org.springframework.boot.origin;
 import java.io.File;
 
 /**
- * Interface that uniquely represents the origin of an item. For example, an item loaded
- * from a {@link File} may have an origin made up of the file name along with line/column
- * numbers.
+ * 唯一表示项目来源的接口。 例如，从{@link File}加载的项目可能具有由文件名以及行/列号组成的原点。
  * <p>
- * Implementations must provide sensible {@code hashCode()}, {@code equals(...)} and
- * {@code #toString()} implementations.
+ * 实现必须提供明智的{@code hashCode()}, {@code equals(...)}和{@code #toString()}实现。
  *
  * @author Madhura Bhave
  * @author Phillip Webb
@@ -34,8 +31,7 @@ import java.io.File;
 public interface Origin {
 
 	/**
-	 * Find the {@link Origin} that an object originated from. Checks if the source object
-	 * is an {@link OriginProvider} and also searches exception stacks.
+	 * 找到对象的{@link Origin}。 检查源对象是否为{@link OriginProvider}，并搜索异常堆栈。
 	 * @param source the source object or {@code null}
 	 * @return an optional {@link Origin}
 	 */

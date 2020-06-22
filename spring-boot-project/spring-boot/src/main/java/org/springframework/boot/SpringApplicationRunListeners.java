@@ -27,7 +27,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * A collection of {@link SpringApplicationRunListener}.
+ * {@link SpringApplicationRunListener}的集合。
  *
  * @author Phillip Webb
  */
@@ -48,24 +48,28 @@ class SpringApplicationRunListeners {
 		}
 	}
 
+	//environment准备完毕事件监听
 	void environmentPrepared(ConfigurableEnvironment environment) {
 		for (SpringApplicationRunListener listener : this.listeners) {
 			listener.environmentPrepared(environment);
 		}
 	}
 
+	//spring上下文准备完毕事件监听
 	void contextPrepared(ConfigurableApplicationContext context) {
 		for (SpringApplicationRunListener listener : this.listeners) {
 			listener.contextPrepared(context);
 		}
 	}
 
+	//上下文配置类加载事件监听
 	void contextLoaded(ConfigurableApplicationContext context) {
 		for (SpringApplicationRunListener listener : this.listeners) {
 			listener.contextLoaded(context);
 		}
 	}
 
+	//上下文构造完成事件监听
 	void started(ConfigurableApplicationContext context) {
 		for (SpringApplicationRunListener listener : this.listeners) {
 			listener.started(context);

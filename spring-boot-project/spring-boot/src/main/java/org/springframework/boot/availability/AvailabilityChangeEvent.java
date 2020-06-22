@@ -22,10 +22,10 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.util.Assert;
 
 /**
- * {@link ApplicationEvent} sent when the {@link AvailabilityState} of the application
- * changes.
+ * 当应用程序的{@link AvailabilityState}更改时发送的{@link ApplicationEvent}。
+ *
  * <p>
- * Any application component can send such events to update the state of the application.
+ * 任何应用程序组件都可以发送此类事件以更新应用程序的状态。
  *
  * @param <S> the availability state type
  * @author Brian Clozel
@@ -56,8 +56,7 @@ public class AvailabilityChangeEvent<S extends AvailabilityState> extends Applic
 	}
 
 	/**
-	 * Convenience method that can be used to publish an {@link AvailabilityChangeEvent}
-	 * to the given application context.
+	 * 可用于将{@link AvailabilityChangeEvent}发布到给定应用程序上下文的便捷方法。
 	 * @param <S> the availability state type
 	 * @param context the context used to publish the event
 	 * @param state the changed availability state

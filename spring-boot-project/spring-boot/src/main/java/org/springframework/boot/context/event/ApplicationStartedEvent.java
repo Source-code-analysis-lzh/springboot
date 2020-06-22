@@ -25,6 +25,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * Event published once the application context has been refreshed but before any
  * {@link ApplicationRunner application} and {@link CommandLineRunner command line}
  * runners have been called.
+ * 刷新应用程序上下文后，但在调用任何{@link ApplicationRunner 应用程序}和{@link CommandLineRunner 命令行}运行程序之前，发布事件。
  *
  * @author Andy Wilkinson
  * @since 2.0.0

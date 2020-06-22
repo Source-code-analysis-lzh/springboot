@@ -23,12 +23,10 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link EnvironmentPostProcessor} to enable the Reactor Debug Agent if available.
+ * {@link EnvironmentPostProcessor}启用Reactor调试代理（如果可用）。
  * <p>
- * The debug agent is enabled by default, unless the
- * {@code "spring.reactor.debug-agent.enabled"} configuration property is set to false. We
- * are using here an {@link EnvironmentPostProcessor} instead of an auto-configuration
- * class to enable the agent as soon as possible during the startup process.
+ * 除非{@code "spring.reactor.debug-agent.enabled"}配置属性设置为false，否则默认情况下将启用调试代理。
+ * 我们在这里使用{@link EnvironmentPostProcessor}而不是自动配置类来在启动过程中尽快启用代理。
  *
  * @author Brian Clozel
  * @since 2.2.0
