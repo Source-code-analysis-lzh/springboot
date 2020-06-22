@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.web.servlet.ServletContextInitializer</OriginalElement>
+  <nodes>
+    <node x="0.0" y="535.0">org.springframework.boot.web.servlet.FilterRegistrationBean</node>
+    <node x="720.0769230769231" y="321.0">org.springframework.boot.web.servlet.ServletListenerRegistrationBean</node>
+    <node x="1212.076923076923" y="214.0">org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.SessionConfiguringInitializer</node>
+    <node x="318.0769230769231" y="214.0">org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar</node>
+    <node x="726.0" y="535.0">org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean</node>
+    <node x="626.0769230769231" y="214.0">org.springframework.boot.web.servlet.RegistrationBean</node>
+    <node x="141.5" y="428.0">org.springframework.boot.web.servlet.AbstractFilterRegistrationBean</node>
+    <node x="764.5" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="854.0769230769231" y="214.0">smoketest.atmosphere.SampleAtmosphereApplication.EmbeddedAtmosphereInitializer</node>
+    <node x="776.0" y="428.0">org.springframework.boot.web.servlet.ServletRegistrationBean</node>
+    <node x="422.0769230769231" y="321.0">org.springframework.boot.web.servlet.DynamicRegistrationBean</node>
+    <node x="288.0" y="535.0">org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean</node>
+    <node x="734.5" y="107.0">org.springframework.boot.web.servlet.ServletContextInitializer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean" target="org.springframework.boot.web.servlet.ServletRegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.AbstractFilterRegistrationBean" target="org.springframework.boot.web.servlet.DynamicRegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="315.5" y="403.0" />
+      <point x="491.5769230769231" y="403.0" />
+      <point x="-69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.FilterRegistrationBean" target="org.springframework.boot.web.servlet.AbstractFilterRegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="134.0" y="510.0" />
+      <point x="228.5" y="510.0" />
+      <point x="-87.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.ServletRegistrationBean" target="org.springframework.boot.web.servlet.DynamicRegistrationBean">
+      <point x="1.1368683772161603E-13" y="-28.5" />
+      <point x="915.0000000000001" y="403.0" />
+      <point x="630.5769230769231" y="403.0" />
+      <point x="69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.ServletListenerRegistrationBean" target="org.springframework.boot.web.servlet.RegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="899.0769230769231" y="296.0" />
+      <point x="782.0769230769231" y="296.0" />
+      <point x="52.0" y="28.5" />
+    </edge>
+    <edge source="smoketest.atmosphere.SampleAtmosphereApplication.EmbeddedAtmosphereInitializer" target="org.springframework.boot.web.servlet.ServletContextInitializer">
+      <point x="0.0" y="-28.5" />
+      <point x="1023.0769230769231" y="194.0" />
+      <point x="920.75" y="194.0" />
+      <point x="37.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.ServletContextInitializer" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.DynamicRegistrationBean" target="org.springframework.boot.web.servlet.RegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="561.0769230769231" y="296.0" />
+      <point x="678.0769230769231" y="296.0" />
+      <point x="-52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar" target="org.springframework.boot.web.servlet.ServletContextInitializer">
+      <point x="0.0" y="-28.5" />
+      <point x="462.0769230769231" y="184.0" />
+      <point x="771.75" y="184.0" />
+      <point x="-111.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean" target="org.springframework.boot.web.servlet.AbstractFilterRegistrationBean">
+      <point x="0.0" y="-28.5" />
+      <point x="497.0" y="510.0" />
+      <point x="402.5" y="510.0" />
+      <point x="87.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.RegistrationBean" target="org.springframework.boot.web.servlet.ServletContextInitializer">
+      <point x="0.0" y="-28.5" />
+      <point x="730.0769230769231" y="194.0" />
+      <point x="846.25" y="194.0" />
+      <point x="-37.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.SessionConfiguringInitializer" target="org.springframework.boot.web.servlet.ServletContextInitializer">
+      <point x="0.0" y="-28.5" />
+      <point x="1381.076923076923" y="184.0" />
+      <point x="995.25" y="184.0" />
+      <point x="111.75" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5919796308084023" x="775.5" y="296.0" />
+  <SelectedNodes>
+    <node>org.springframework.boot.web.servlet.ServletContextInitializer</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

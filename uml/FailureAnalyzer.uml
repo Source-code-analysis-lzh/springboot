@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.diagnostics.FailureAnalyzer</OriginalElement>
+  <nodes>
+    <node x="467.99999999999955" y="391.0">org.springframework.boot.autoconfigure.flyway.FlywayMigrationScriptMissingFailureAnalyzer</node>
+    <node x="4410.0" y="391.0">org.springframework.boot.diagnostics.analyzer.BindFailureAnalyzer</node>
+    <node x="4415.0" y="107.0">org.springframework.boot.diagnostics.FailureAnalysisReporter</node>
+    <node x="4051.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.BindValidationFailureAnalyzer</node>
+    <node x="1403.9999999999995" y="391.0">org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryBeanCreationFailureAnalyzer</node>
+    <node x="5982.0" y="391.0">org.springframework.boot.diagnostics.analyzer.NoSuchMethodFailureAnalyzer</node>
+    <node x="5096.0" y="391.0">org.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer</node>
+    <node x="7226.0" y="391.0">org.springframework.boot.autoconfigure.session.NonUniqueSessionRepositoryFailureAnalyzer</node>
+    <node x="3305.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.ConnectorStartFailureAnalyzer</node>
+    <node x="4668.0" y="391.0">org.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer</node>
+    <node x="4151.75" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="0.0" y="391.0">org.springframework.boot.autoconfigure.jdbc.HikariDriverConfigurationFailureAnalyzer</node>
+    <node x="4380.0" y="214.0">org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter</node>
+    <node x="1911.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.PortInUseFailureAnalyzer</node>
+    <node x="3813.9999999999995" y="214.0">org.springframework.boot.diagnostics.FailureAnalyzersTests.AwareFailureAnalyzer</node>
+    <node x="5534.0" y="391.0">org.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer</node>
+    <node x="6320.0" y="391.0">org.springframework.boot.diagnostics.analyzer.UnboundConfigurationPropertyFailureAnalyzer</node>
+    <node x="7704.0" y="391.0">org.springframework.boot.actuate.autoconfigure.metrics.ValidationFailureAnalyzer</node>
+    <node x="2767.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFailureAnalyzer</node>
+    <node x="253.0" y="600.0">org.springframework.boot.diagnostics.FailureAnalysis</node>
+    <node x="965.9999999999995" y="391.0">org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer</node>
+    <node x="6818.0" y="391.0">org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer</node>
+    <node x="3663.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.AbstractInjectionFailureAnalyzer</node>
+    <node x="2219.9999999999995" y="391.0">org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer</node>
+    <node x="0.0" y="600.0">org.springframework.boot.diagnostics.FailureAnalyzers</node>
+    <node x="3434.9999999999995" y="498.0">org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer</node>
+    <node x="4081.9999999999995" y="214.0">org.springframework.boot.diagnostics.AbstractFailureAnalyzer</node>
+    <node x="3980.4999999999995" y="107.0">org.springframework.boot.diagnostics.FailureAnalyzer</node>
+    <node x="3852.9999999999995" y="498.0">org.springframework.boot.diagnostics.analyzer.NoUniqueBeanDefinitionFailureAnalyzer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="4872.0" y="361.0" />
+      <point x="4250.263157894737" y="361.0" />
+      <point x="29.26315789473665" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.AbstractInjectionFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="3847.9999999999995" y="371.0" />
+      <point x="4206.368421052632" y="371.0" />
+      <point x="-14.631578947368325" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="5305.0" y="351.0" />
+      <point x="4264.894736842105" y="351.0" />
+      <point x="43.89473684210543" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.session.NonUniqueSessionRepositoryFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="7455.0" y="301.0" />
+      <point x="4338.052631578947" y="301.0" />
+      <point x="117.05263157894751" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.jdbc.HikariDriverConfigurationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="224.0" y="291.0" />
+      <point x="4089.3157894736837" y="291.0" />
+      <point x="-131.68421052631584" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryBeanCreationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="1647.9999999999995" y="321.0" />
+      <point x="4133.210526315789" y="321.0" />
+      <point x="-87.7894736842104" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.NoSuchMethodFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="6141.0" y="331.0" />
+      <point x="4294.157894736842" y="331.0" />
+      <point x="73.15789473684208" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.UnboundConfigurationPropertyFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="6559.0" y="321.0" />
+      <point x="4308.78947368421" y="321.0" />
+      <point x="87.7894736842104" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="2483.9999999999995" y="341.0" />
+      <point x="4162.473684210526" y="341.0" />
+      <point x="-58.526315789473756" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.BindValidationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.actuate.autoconfigure.metrics.ValidationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="7853.0" y="291.0" />
+      <point x="4352.684210526315" y="291.0" />
+      <point x="131.68421052631584" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.NoUniqueBeanDefinitionFailureAnalyzer" target="org.springframework.boot.diagnostics.analyzer.AbstractInjectionFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="4061.9999999999995" y="473.0" />
+      <point x="3939.9999999999995" y="473.0" />
+      <point x="92.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.AbstractFailureAnalyzer" target="org.springframework.boot.diagnostics.FailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="4221.0" y="189.0" />
+      <point x="4129.0" y="189.0" />
+      <point x="49.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer" target="org.springframework.boot.diagnostics.analyzer.AbstractInjectionFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="3633.9999999999995" y="473.0" />
+      <point x="3755.9999999999995" y="473.0" />
+      <point x="-92.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="3026.9999999999995" y="351.0" />
+      <point x="4177.105263157894" y="351.0" />
+      <point x="-43.89473684210543" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="7012.0" y="311.0" />
+      <point x="4323.421052631578" y="311.0" />
+      <point x="102.42105263157873" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.FailureAnalyzer" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="4079.4999999999995" y="82.0" />
+      <point x="4211.25" y="82.0" />
+      <point x="-59.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.flyway.FlywayMigrationScriptMissingFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="706.9999999999995" y="301.0" />
+      <point x="4103.947368421052" y="301.0" />
+      <point x="-117.05263157894751" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="5748.0" y="341.0" />
+      <point x="4279.526315789473" y="341.0" />
+      <point x="58.526315789473756" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.FailureAnalysisReporter" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="4554.0" y="82.0" />
+      <point x="4330.25" y="82.0" />
+      <point x="59.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.PortInUseFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="2055.9999999999995" y="331.0" />
+      <point x="4147.8421052631575" y="331.0" />
+      <point x="-73.15789473684208" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter" target="org.springframework.boot.diagnostics.FailureAnalysisReporter">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="1174.9999999999995" y="311.0" />
+      <point x="4118.578947368421" y="311.0" />
+      <point x="-102.42105263157873" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.ConnectorStartFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="3474.9999999999995" y="361.0" />
+      <point x="4191.736842105263" y="361.0" />
+      <point x="-29.26315789473665" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.FailureAnalyzersTests.AwareFailureAnalyzer" target="org.springframework.boot.diagnostics.FailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="3937.9999999999995" y="189.0" />
+      <point x="4029.9999999999995" y="189.0" />
+      <point x="-49.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.diagnostics.analyzer.BindFailureAnalyzer" target="org.springframework.boot.diagnostics.AbstractFailureAnalyzer">
+      <point x="0.0" y="-28.5" />
+      <point x="4529.0" y="371.0" />
+      <point x="4235.631578947368" y="371.0" />
+      <point x="14.631578947368325" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="3849.0" y="161.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.logging.LoggingSystem</OriginalElement>
+  <nodes>
+    <node x="526.0" y="107.0">org.springframework.boot.logging.LoggingSystem.NoOpLoggingSystem</node>
+    <node x="268.0" y="321.0">org.springframework.boot.logging.log4j2.Log4J2LoggingSystem</node>
+    <node x="389.5" y="214.0">org.springframework.boot.logging.java.JavaLoggingSystem</node>
+    <node x="141.5" y="214.0">org.springframework.boot.logging.Slf4JLoggingSystem</node>
+    <node x="417.0" y="0.0">org.springframework.boot.logging.LoggingSystem</node>
+    <node x="248.0" y="107.0">org.springframework.boot.logging.AbstractLoggingSystem</node>
+    <node x="0.0" y="321.0">org.springframework.boot.logging.logback.LogbackLoggingSystem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.logging.logback.LogbackLoggingSystem" target="org.springframework.boot.logging.Slf4JLoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="124.0" y="296.0" />
+      <point x="198.5" y="296.0" />
+      <point x="-57.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.logging.java.JavaLoggingSystem" target="org.springframework.boot.logging.AbstractLoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="498.5" y="189.0" />
+      <point x="441.5" y="189.0" />
+      <point x="64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.logging.LoggingSystem.NoOpLoggingSystem" target="org.springframework.boot.logging.LoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="635.0" y="82.0" />
+      <point x="550.5" y="82.0" />
+      <point x="44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.logging.log4j2.Log4J2LoggingSystem" target="org.springframework.boot.logging.Slf4JLoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="387.0" y="296.0" />
+      <point x="312.5" y="296.0" />
+      <point x="57.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.logging.Slf4JLoggingSystem" target="org.springframework.boot.logging.AbstractLoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="255.5" y="189.0" />
+      <point x="312.5" y="189.0" />
+      <point x="-64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.logging.AbstractLoggingSystem" target="org.springframework.boot.logging.LoggingSystem">
+      <point x="0.0" y="-28.5" />
+      <point x="377.0" y="82.0" />
+      <point x="461.5" y="82.0" />
+      <point x="-44.5" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="313.0" y="73.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

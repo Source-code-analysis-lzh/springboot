@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.ansi.AnsiElement</OriginalElement>
+  <nodes>
+    <node x="304.5" y="0.0">org.springframework.boot.ansi.AnsiElement</node>
+    <node x="0.0" y="209.0">org.springframework.boot.ansi.AnsiPropertySource</node>
+    <node x="466.0" y="209.0">org.springframework.boot.ansi.AnsiOutput</node>
+    <node x="406.0" y="107.0">org.springframework.boot.ansi.AnsiColor</node>
+    <node x="198.0" y="107.0">org.springframework.boot.ansi.AnsiBackground</node>
+    <node x="0.0" y="107.0">org.springframework.boot.ansi.Ansi8BitColor</node>
+    <node x="273.0" y="209.0">org.springframework.boot.ansi.AnsiColors</node>
+    <node x="564.0" y="107.0">org.springframework.boot.ansi.AnsiStyle</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.ansi.AnsiColor" target="org.springframework.boot.ansi.AnsiElement">
+      <point x="0.0" y="-28.5" />
+      <point x="475.0" y="87.0" />
+      <point x="403.25" y="87.0" />
+      <point x="19.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.ansi.AnsiStyle" target="org.springframework.boot.ansi.AnsiElement">
+      <point x="0.0" y="-28.5" />
+      <point x="633.0" y="77.0" />
+      <point x="442.75" y="77.0" />
+      <point x="59.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.ansi.Ansi8BitColor" target="org.springframework.boot.ansi.AnsiElement">
+      <point x="0.0" y="-28.5" />
+      <point x="89.0" y="77.0" />
+      <point x="324.25" y="77.0" />
+      <point x="-59.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.ansi.AnsiBackground" target="org.springframework.boot.ansi.AnsiElement">
+      <point x="0.0" y="-28.5" />
+      <point x="292.0" y="87.0" />
+      <point x="363.75" y="87.0" />
+      <point x="-19.75" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="351.0" y="133.0" />
+  <SelectedNodes>
+    <node>org.springframework.boot.ansi.AnsiElement</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

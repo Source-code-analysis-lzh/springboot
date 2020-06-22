@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.Banner</OriginalElement>
+  <nodes>
+    <node x="316.0" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="722.0" y="214.0">org.springframework.boot.SpringBootBanner</node>
+    <node x="381.0" y="107.0">org.springframework.boot.Banner</node>
+    <node x="0.0" y="214.0">org.springframework.boot.SpringApplicationBannerPrinter.PrintedBanner</node>
+    <node x="376.0" y="214.0">org.springframework.boot.SpringApplicationBannerPrinter.Banners</node>
+    <node x="514.0" y="214.0">org.springframework.boot.ResourceBanner</node>
+    <node x="198.0" y="214.0">org.springframework.boot.ImageBanner</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.SpringApplicationBannerPrinter.Banners" target="org.springframework.boot.Banner">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.SpringApplicationBannerPrinter.PrintedBanner" target="org.springframework.boot.Banner">
+      <point x="0.0" y="-28.5" />
+      <point x="89.0" y="184.0" />
+      <point x="391.8" y="184.0" />
+      <point x="-43.19999999999999" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.ResourceBanner" target="org.springframework.boot.Banner">
+      <point x="0.0" y="-28.5" />
+      <point x="608.0" y="194.0" />
+      <point x="456.6" y="194.0" />
+      <point x="21.600000000000023" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.Banner" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.SpringBootBanner" target="org.springframework.boot.Banner">
+      <point x="0.0" y="-28.5" />
+      <point x="826.0" y="184.0" />
+      <point x="478.20000000000005" y="184.0" />
+      <point x="43.200000000000045" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.ImageBanner" target="org.springframework.boot.Banner">
+      <point x="0.0" y="-28.5" />
+      <point x="277.0" y="194.0" />
+      <point x="413.4" y="194.0" />
+      <point x="-21.600000000000023" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="119.0" y="82.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.boot.context.properties.source.ConfigurationPropertySource</OriginalElement>
+  <nodes>
+    <node x="831.75" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="791.75" y="107.0">org.springframework.boot.context.properties.source.ConfigurationPropertySource</node>
+    <node x="1043.0" y="321.0">org.springframework.boot.context.properties.source.MockConfigurationPropertySource</node>
+    <node x="77.0" y="321.0">org.springframework.boot.context.properties.source.AliasedIterableConfigurationPropertySource</node>
+    <node x="0.0" y="214.0">org.springframework.boot.context.properties.source.AliasedConfigurationPropertySource</node>
+    <node x="1078.090909090909" y="214.0">org.springframework.boot.context.properties.source.IterableConfigurationPropertySource</node>
+    <node x="1421.0" y="321.0">org.springframework.boot.context.properties.source.MapConfigurationPropertySource</node>
+    <node x="1953.5" y="214.0">org.springframework.boot.context.properties.source.FilteredConfigurationPropertiesSource</node>
+    <node x="565.0" y="321.0">org.springframework.boot.context.properties.source.SpringIterableConfigurationPropertySource</node>
+    <node x="490.5" y="214.0">org.springframework.boot.context.properties.source.SpringConfigurationPropertySource</node>
+    <node x="1789.0" y="321.0">org.springframework.boot.context.properties.source.FilteredIterableConfigurationPropertiesSource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.boot.context.properties.source.SpringIterableConfigurationPropertySource" target="org.springframework.boot.context.properties.source.SpringConfigurationPropertySource">
+      <point x="-114.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.AliasedIterableConfigurationPropertySource" target="org.springframework.boot.context.properties.source.AliasedConfigurationPropertySource">
+      <point x="-117.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.SpringConfigurationPropertySource" target="org.springframework.boot.context.properties.source.ConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="679.5" y="194.0" />
+      <point x="911.0" y="194.0" />
+      <point x="-39.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.AliasedConfigurationPropertySource" target="org.springframework.boot.context.properties.source.ConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="194.0" y="184.0" />
+      <point x="831.5" y="184.0" />
+      <point x="-119.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.AliasedIterableConfigurationPropertySource" target="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource">
+      <point x="117.0" y="-28.5" />
+      <point x="428.0" y="291.0" />
+      <point x="1117.890909090909" y="291.0" />
+      <point x="-159.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.MockConfigurationPropertySource" target="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1222.0" y="301.0" />
+      <point x="1277.090909090909" y="301.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource" target="org.springframework.boot.context.properties.source.ConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1277.090909090909" y="194.0" />
+      <point x="990.5" y="194.0" />
+      <point x="39.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.MapConfigurationPropertySource" target="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1595.0" y="301.0" />
+      <point x="1356.6909090909091" y="301.0" />
+      <point x="79.60000000000014" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.FilteredConfigurationPropertiesSource" target="org.springframework.boot.context.properties.source.ConfigurationPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="2162.5" y="184.0" />
+      <point x="1070.0" y="184.0" />
+      <point x="119.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.SpringIterableConfigurationPropertySource" target="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource">
+      <point x="114.5" y="-28.5" />
+      <point x="908.5" y="301.0" />
+      <point x="1197.490909090909" y="301.0" />
+      <point x="-79.59999999999991" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.FilteredIterableConfigurationPropertiesSource" target="org.springframework.boot.context.properties.source.FilteredConfigurationPropertiesSource">
+      <point x="124.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.FilteredIterableConfigurationPropertiesSource" target="org.springframework.boot.context.properties.source.IterableConfigurationPropertySource">
+      <point x="-124.5" y="-28.5" />
+      <point x="1913.5" y="291.0" />
+      <point x="1436.290909090909" y="291.0" />
+      <point x="159.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.boot.context.properties.source.ConfigurationPropertySource" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="678.5" y="82.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
